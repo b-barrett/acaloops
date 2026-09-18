@@ -100,11 +100,12 @@ a {
 .hero h1 {
   margin: 0;
 
+  font-family: "Titan One", sans-serif;
   font-size: clamp(5rem, 14vw, 10.5rem);
-  font-weight: 800;
+  font-weight: 400;
 
   line-height: 0.8;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.03em;
 }
 
 
@@ -164,16 +165,13 @@ a {
 
 
 .button-light {
+  padding: 16px 30px;
+
   color: var(--green);
   background: var(--white);
   border-color: var(--white);
-}
 
-
-.button-dark {
-  color: var(--green);
-  background: transparent;
-  border-color: var(--green);
+  font-size: 0.85rem;
 }
 
 
