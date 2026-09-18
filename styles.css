@@ -121,17 +121,7 @@ a {
 }
 
 
-.hero-location {
-  margin: 20px 0 0;
-
-  font-size: 0.95rem;
-  font-weight: 600;
-
-  line-height: 1.45;
-}
-
-
-.hero-date {
+.hero-date-location {
   margin: 30px 0 30px;
 
   font-size: clamp(1rem, 2vw, 1.25rem);
