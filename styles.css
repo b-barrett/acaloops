@@ -391,18 +391,6 @@ h2.section-label,
 }
 
 
-.extra-number {
-  display: block;
-
-  margin-bottom: 26px;
-
-  font-size: 0.72rem;
-  font-weight: 900;
-
-  letter-spacing: 0.15em;
-}
-
-
 .extra p {
   max-width: 430px;
 
