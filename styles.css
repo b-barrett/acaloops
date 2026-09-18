@@ -1,0 +1,357 @@
+/* ------------------------------
+   ACALOOPS
+   ------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172018;
+  background: #f4f1e8;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* ------------------------------
+   HERO
+   ------------------------------ */
+
+.hero {
+  min-height: 88vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: white;
+
+  padding: 60px 24px;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.22),
+      rgba(0, 0, 0, 0.42)
+    ),
+    url("assets/images/acalanes-ridge-open-space-diablo-view.jpeg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-size: clamp(4rem, 13vw, 9rem);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+}
+
+.hero-subtitle {
+  margin: 24px 0 4px;
+
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-editions {
+  margin-bottom: 34px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* ------------------------------
+   BUTTONS
+   ------------------------------ */
+
+.button {
+  display: inline-block;
+
+  padding: 13px 22px;
+  margin: 8px 5px;
+
+  border: 2px solid currentColor;
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: white;
+  color: #172018;
+  border-color: white;
+}
+
+
+/* ------------------------------
+   SECTIONS
+   ------------------------------ */
+
+.section {
+  padding: 100px 24px;
+}
+
+.section-inner {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+}
+
+.section-label {
+  margin-bottom: 16px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.section h2 {
+  max-width: 850px;
+  margin-bottom: 24px;
+
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.section p {
+  max-width: 700px;
+  font-size: 1.1rem;
+}
+
+.lead {
+  font-size: clamp(1.15rem, 2vw, 1.35rem) !important;
+}
+
+
+/* ------------------------------
+   DATES
+   ------------------------------ */
+
+.dates {
+  background: #172018;
+  color: white;
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+
+  margin-top: 36px;
+}
+
+.date h2 {
+  margin-bottom: 8px;
+
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.season {
+  margin-bottom: 8px;
+
+  font-size: 0.8rem !important;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.location {
+  margin-top: 50px;
+  margin-bottom: 0;
+
+  font-weight: 700;
+}
+
+
+/* ------------------------------
+   FORMAT + STATS
+   ------------------------------ */
+
+.format {
+  background: #f4f1e8;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  margin-top: 60px;
+}
+
+.stat {
+  padding-top: 18px;
+  border-top: 2px solid #172018;
+}
+
+.stat strong {
+  display: block;
+
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  line-height: 1;
+}
+
+.stat span {
+  display: block;
+  margin-top: 10px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* ------------------------------
+   ROUTE
+   ------------------------------ */
+
+.route {
+  background: #d9dfcf;
+}
+
+.route-links {
+  margin-top: 36px;
+}
+
+
+/* ------------------------------
+   AID
+   ------------------------------ */
+
+.aid {
+  background: #c89d62;
+}
+
+
+/* ------------------------------
+   EXTRAS
+   ------------------------------ */
+
+.extras {
+  background: #f4f1e8;
+}
+
+
+/* ------------------------------
+   FINAL CTA
+   ------------------------------ */
+
+.final-cta {
+  text-align: center;
+
+  background: #172018;
+  color: white;
+}
+
+.final-cta .section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.final-cta h2,
+.final-cta p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ------------------------------
+   FOOTER
+   ------------------------------ */
+
+footer {
+  padding: 40px 24px;
+
+  text-align: center;
+
+  background: #0e130f;
+  color: #c9cec9;
+
+  font-size: 0.8rem;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+
+/* ------------------------------
+   MOBILE
+   ------------------------------ */
+
+@media (max-width: 700px) {
+
+  .hero {
+    min-height: 78vh;
+  }
+
+  .section {
+    padding: 72px 20px;
+  }
+
+  .date-grid,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .date-grid {
+    gap: 35px;
+  }
+
+  .stats {
+    gap: 30px;
+  }
+
+}
