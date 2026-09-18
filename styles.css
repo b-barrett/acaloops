@@ -100,9 +100,8 @@ a {
 .hero h1 {
   margin: 0;
 
-  font-family: "Titan One", sans-serif;
   font-size: clamp(5rem, 14vw, 10.5rem);
-  font-weight: 400;
+  font-weight: 600;
 
   line-height: 0.8;
   letter-spacing: -0.03em;
@@ -273,15 +272,13 @@ a {
 
 
 /* ---------------------------------------------------------
-   7. DETAILS + EXTRAS
+   7. DETAILS
    --------------------------------------------------------- */
 
-.details-grid,
-.extras-grid {
+.details-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 80px;
-  max-width: 900px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
 }
 
 
@@ -295,8 +292,7 @@ a {
 }
 
 
-.detail p,
-.extras-grid p {
+.detail p {
   margin: 0;
 }
 
@@ -318,29 +314,7 @@ a {
 
 
 /* ---------------------------------------------------------
-   8. SIGNUP
-   --------------------------------------------------------- */
-
-.signup-section {
-  padding: 92px 0;
-  text-align: center;
-  border-bottom: 0;
-}
-
-
-.signup-section h2 {
-  margin: 0 0 30px;
-
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  font-weight: 800;
-
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-}
-
-
-/* ---------------------------------------------------------
-   9. FOOTER
+   8. FOOTER
    --------------------------------------------------------- */
 
 footer {
@@ -367,7 +341,7 @@ footer p + p {
 
 
 /* ---------------------------------------------------------
-   10. TABLET
+   9. TABLET
    --------------------------------------------------------- */
 
 @media (max-width: 900px) {
@@ -377,8 +351,7 @@ footer p + p {
   }
 
 
-  .details-grid,
-  .extras-grid {
+  .details-grid {
     gap: 48px;
   }
 
@@ -386,7 +359,7 @@ footer p + p {
 
 
 /* ---------------------------------------------------------
-   11. MOBILE
+   10. MOBILE
    --------------------------------------------------------- */
 
 @media (max-width: 600px) {
@@ -405,12 +378,30 @@ footer p + p {
 
 
   .hero h1 {
-    font-size: clamp(4rem, 22vw, 6rem);
+    font-size: clamp(3.8rem, 21vw, 6rem);
+    line-height: 0.82;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
   }
 
 
   .hero-subtitle {
     margin-top: 28px;
+
+    font-size: clamp(0.75rem, 3.6vw, 1.15rem);
+    line-height: 1.15;
+    letter-spacing: 0.07em;
+
+    white-space: nowrap;
+  }
+
+
+  .hero-date-location {
+    margin: 26px 0;
+
+    font-size: 0.9rem;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
   }
 
 
@@ -438,8 +429,7 @@ footer p + p {
   }
 
 
-  .details-grid,
-  .extras-grid {
+  .details-grid {
     grid-template-columns: 1fr;
 
     gap: 38px;
@@ -457,16 +447,6 @@ footer p + p {
     max-width: 320px;
 
     text-align: center;
-  }
-
-   
-   .signup-section {
-    padding: 72px 0;
-  }
-
-
-  .signup-section h2 {
-    font-size: clamp(3rem, 15vw, 4.5rem);
   }
 
 }
