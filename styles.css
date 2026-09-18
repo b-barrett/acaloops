@@ -4,55 +4,58 @@
 
 
 /* ---------------------------------------------------------
-   1. BASIC PAGE SETUP
+   1. DESIGN VARIABLES
    --------------------------------------------------------- */
 
 /*
-   The * selector targets every HTML element.
+   These are CSS variables.
 
-   border-box makes sizing easier to reason about because
-   padding and borders are included within an element's
-   declared width.
+   Instead of repeating the same color everywhere,
+   we define it once and reuse it.
+
+   Example:
+   var(--green) means "use the value assigned to --green."
 */
+
+:root {
+  --cream: #f3f0e6;
+  --green: #15231a;
+  --green-soft: #26392c;
+  --sage: #d8dece;
+  --gold: #c79b5c;
+  --white: #ffffff;
+  --black: #0b100c;
+}
+
+
+/* ---------------------------------------------------------
+   2. BASIC PAGE SETUP
+   --------------------------------------------------------- */
 
 * {
   box-sizing: border-box;
 }
 
 
-/*
-   Enables smooth scrolling if we later add links that jump
-   to sections elsewhere on this page.
-*/
-
 html {
   scroll-behavior: smooth;
 }
 
 
-/*
-   BODY controls the basic appearance of the entire page.
-
-   margin: 0 removes the browser's default white margin
-   around the outside of the page.
-*/
-
 body {
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  color: #172018;
-  background: #f4f1e8;
+  line-height: 1.5;
+
+  color: var(--green);
+  background: var(--cream);
 }
 
-
-/*
-   Browsers automatically put margins above headings and
-   paragraphs. Removing the top margin gives us explicit
-   control over spacing.
-*/
 
 h1,
 h2,
@@ -62,11 +65,6 @@ p {
 }
 
 
-/*
-   Links inherit the text color of their surrounding section
-   unless we specify something different later.
-*/
-
 a {
   color: inherit;
 }
@@ -74,56 +72,25 @@ a {
 
 
 /* ---------------------------------------------------------
-   2. HERO
+   3. HERO
    --------------------------------------------------------- */
 
 .hero {
-
-  /*
-     vh = viewport height.
-
-     88vh means the hero must be at least 88% as tall as
-     the visible browser window.
-  */
-
-  min-height: 88vh;
-
-
-  /*
-     Flexbox centers .hero-content horizontally and
-     vertically inside the hero.
-  */
+  min-height: 92vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  padding: 70px 28px;
 
-  /*
-     60px top/bottom padding
-     24px left/right padding
-  */
-
-  padding: 60px 24px;
-
+  color: var(--white);
   text-align: center;
-  color: white;
-
-
-  /*
-     Two backgrounds are stacked:
-
-     1. A translucent dark gradient.
-     2. Your Acalanes Ridge photograph.
-
-     The dark layer improves text readability without
-     altering the original image file.
-  */
 
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.22),
-      rgba(0, 0, 0, 0.42)
+      rgba(7, 16, 10, 0.15),
+      rgba(7, 16, 10, 0.48)
     ),
     url("assets/images/acalanes-ridge-open-space-diablo-view.jpeg");
 
@@ -132,101 +99,75 @@ a {
 }
 
 
-/*
-   Prevents the hero text from becoming excessively wide
-   on a large monitor.
-*/
-
 .hero-content {
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
 }
 
-
-/*
-   Main ACALOOPS title.
-*/
 
 .hero h1 {
   margin: 0;
 
-  font-size: clamp(4rem, 13vw, 9rem);
-  line-height: 0.85;
+  font-size: clamp(5rem, 14vw, 10.5rem);
+  font-weight: 900;
 
-  letter-spacing: -0.06em;
+  line-height: 0.78;
+  letter-spacing: -0.075em;
 }
 
 
-/*
-   "50-Mile Fat Ass Loop Ultra"
-*/
-
 .hero-subtitle {
-  margin: 24px 0 0;
+  margin: 34px 0 0;
 
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  font-weight: 700;
+  font-size: clamp(1.15rem, 2.6vw, 1.8rem);
+  font-weight: 800;
 
-  letter-spacing: 0.06em;
+  line-height: 1.1;
+
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
 
-/*
-   "Acalanes Ridge Open Space in Walnut Creek"
-
-   This has its own class so we can style it independently
-   from the event subtitle as the design develops.
-*/
-
 .hero-location {
-  margin: 8px 0 0;
+  margin: 14px 0 0;
 
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  font-weight: 700;
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  font-weight: 600;
 
-  letter-spacing: 0.04em;
+  letter-spacing: 0.025em;
 }
 
 
-/*
-   Event date.
-*/
-
 .hero-date {
-  margin: 20px 0 34px;
+  margin: 30px 0 32px;
 
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 
 
 /* ---------------------------------------------------------
-   3. BUTTONS
+   4. BUTTONS
    --------------------------------------------------------- */
-
-/*
-   .button is the shared design for all buttons/links that
-   should visually appear as buttons.
-*/
 
 .button {
   display: inline-block;
 
   margin: 8px 5px;
-  padding: 13px 22px;
+  padding: 13px 23px;
 
   border: 2px solid currentColor;
   border-radius: 999px;
 
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-decoration: none;
   text-transform: uppercase;
 
@@ -237,291 +178,259 @@ a {
 }
 
 
-/*
-   When a mouse pointer hovers over a button, move the
-   button upward by two pixels.
-*/
-
 .button:hover {
   transform: translateY(-2px);
 }
 
 
-/*
-   Primary buttons are currently the RSVP buttons.
-
-   An element can have both classes:
-
-   class="button button-primary"
-
-   It therefore receives rules from BOTH .button and
-   .button-primary.
-*/
-
 .button-primary {
-  background: white;
-  color: #172018;
-  border-color: white;
+  color: var(--green);
+  background: var(--white);
+  border-color: var(--white);
 }
 
 
 
 /* ---------------------------------------------------------
-   4. SHARED SECTION LAYOUT
+   5. SHARED SECTION LAYOUT
    --------------------------------------------------------- */
 
-/*
-   Every major content section receives the same basic
-   padding.
-*/
-
 .section {
-  padding: 100px 24px;
+  padding: 88px 28px;
 }
 
 
-/*
-   Keep content centered and no wider than 1000px.
-
-   width: min(100%, 1000px) means:
-   use the smaller of the available width or 1000px.
-*/
-
 .section-inner {
-  width: min(100%, 1000px);
+  width: min(100%, 1120px);
   margin: 0 auto;
 }
 
 
 /*
-   Small section headings such as:
+   These are real H2 headings in the HTML.
 
-   THE ROUTE
-   DETAILS
-   THE EXTRAS
+   Their semantic importance does NOT require them
+   to look large.
 
-   These are genuine HTML headings even though CSS makes
-   them visually small.
+   This CSS deliberately makes them small eyebrow labels.
 */
 
+h2.section-label,
 .section-label {
-  margin-bottom: 16px;
+  margin: 0 0 24px;
 
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 900;
 
-  letter-spacing: 0.18em;
+  line-height: 1;
+
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 
-/*
-   Large "6 Laps." headline in the route section.
-*/
-
 .section-headline {
-  margin-bottom: 24px;
+  margin: 0 0 28px;
 
-  font-size: clamp(2.4rem, 6vw, 5rem);
-  font-weight: 700;
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  font-weight: 900;
 
-  line-height: 1;
-  letter-spacing: -0.045em;
+  line-height: 0.88;
+  letter-spacing: -0.065em;
 }
 
 
-/*
-   Introductory route description.
-*/
-
 .lead {
-  max-width: 750px;
+  max-width: 820px;
 
-  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  margin-bottom: 0;
+
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.55;
 }
 
 
 
 /* ---------------------------------------------------------
-   5. ROUTE OVERVIEW
+   6. ROUTE OVERVIEW
    --------------------------------------------------------- */
 
 .route-overview {
-  background: #f4f1e8;
+  padding-top: 105px;
+  padding-bottom: 105px;
+
+  background: var(--cream);
 }
 
-
-/*
-   CSS Grid arranges the route statistics.
-*/
 
 .stats {
   display: grid;
-
-
-  /*
-     We currently have FIVE stats, so on a sufficiently
-     wide screen they appear as five equal columns.
-  */
-
   grid-template-columns: repeat(5, 1fr);
 
-  gap: 20px;
+  gap: 18px;
 
-  margin-top: 60px;
+  margin-top: 72px;
 }
 
-
-/*
-   Each individual statistic gets a horizontal line above it.
-*/
 
 .stat {
   min-width: 0;
 
-  padding-top: 18px;
+  padding-top: 20px;
 
-  border-top: 2px solid #172018;
+  border-top: 3px solid var(--green);
 }
 
-
-/*
-   Large number:
-   8.5
-   ~2,400
-   6
-   50+
-   14K+
-*/
 
 .stat strong {
   display: block;
 
-  font-size: clamp(2rem, 4vw, 3.8rem);
-  line-height: 1;
+  font-size: clamp(2.4rem, 4.7vw, 4.5rem);
+  font-weight: 900;
+
+  line-height: 0.9;
+  letter-spacing: -0.055em;
 }
 
-
-/*
-   Label beneath each large number.
-*/
 
 .stat span {
   display: block;
 
-  margin-top: 10px;
+  margin-top: 14px;
 
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+  font-weight: 900;
 
-  line-height: 1.3;
-  letter-spacing: 0.08em;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 
 
 /* ---------------------------------------------------------
-   6. DETAILS
+   7. DETAILS
    --------------------------------------------------------- */
 
 .details {
-  background: #d9dfcf;
+  color: var(--cream);
+  background: var(--green);
 }
 
 
-/*
-   Wrapper around all detail items.
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
-   Keeping these items together lets us safely identify
-   the last detail item in CSS.
-*/
+  gap: 60px;
 
-.details-list {
-  max-width: 750px;
+  margin-top: 38px;
 }
 
-
-/*
-   Individual detail:
-   START / FINISH
-   ALL-DAY AID
-*/
 
 .detail {
-  padding: 28px 0;
+  padding-top: 22px;
 
-  border-top: 2px solid #172018;
-}
-
-
-/*
-   Because .detail elements are now grouped inside
-   .details-list, :last-child reliably means the final
-   detail item.
-*/
-
-.detail:last-child {
-  border-bottom: 2px solid #172018;
+  border-top: 3px solid var(--gold);
 }
 
 
 .detail h3 {
-  margin-bottom: 5px;
+  margin-bottom: 16px;
 
-  font-size: 1.35rem;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 900;
+
+  line-height: 1;
+  letter-spacing: -0.035em;
 }
 
 
 .detail p {
   margin-bottom: 0;
 
-  font-size: 1.1rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 
-/*
-   Space above the Strava and GPX buttons.
-*/
-
 .route-links {
-  margin-top: 40px;
+  margin-top: 54px;
+}
+
+
+.details .button {
+  color: var(--cream);
 }
 
 
 
 /* ---------------------------------------------------------
-   7. EXTRAS
+   8. EXTRAS
    --------------------------------------------------------- */
 
 .extras {
-  background: #f4f1e8;
+  background: var(--gold);
 }
 
 
-.extras p {
-  max-width: 700px;
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
-  font-size: 1.1rem;
+  gap: 60px;
+
+  margin-top: 38px;
+}
+
+
+.extra {
+  padding-top: 20px;
+
+  border-top: 3px solid var(--green);
+}
+
+
+.extra-number {
+  display: block;
+
+  margin-bottom: 26px;
+
+  font-size: 0.72rem;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+
+.extra p {
+  max-width: 430px;
+
+  margin-bottom: 0;
+
+  font-size: clamp(1.4rem, 2.7vw, 2.1rem);
+  font-weight: 800;
+
+  line-height: 1.15;
+  letter-spacing: -0.025em;
 }
 
 
 
 /* ---------------------------------------------------------
-   8. FINAL RSVP
+   9. FINAL RSVP
    --------------------------------------------------------- */
 
 .final-cta {
-  background: #172018;
-  color: white;
+  padding-top: 105px;
+  padding-bottom: 105px;
+
+  color: var(--white);
+  background: var(--green);
 
   text-align: center;
 }
 
-
-/*
-   Center the final RSVP content.
-*/
 
 .final-cta .section-inner {
   display: flex;
@@ -530,30 +439,36 @@ a {
 }
 
 
-.final-cta h2 {
+.final-cta .section-label {
   margin-bottom: 28px;
+}
 
-  font-size: clamp(2.4rem, 6vw, 5rem);
 
-  line-height: 1;
-  letter-spacing: -0.045em;
+.final-cta h2 {
+  margin: 0 0 38px;
+
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 900;
+
+  line-height: 0.9;
+  letter-spacing: -0.06em;
 }
 
 
 
 /* ---------------------------------------------------------
-   9. FOOTER
+   10. FOOTER
    --------------------------------------------------------- */
 
 footer {
-  padding: 40px 24px;
+  padding: 34px 28px;
 
-  background: #0e130f;
-  color: #c9cec9;
+  color: #b9c1ba;
+  background: var(--black);
 
   text-align: center;
 
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 
@@ -564,20 +479,19 @@ footer p {
 
 
 /* ---------------------------------------------------------
-   10. TABLET / MEDIUM SCREENS
+   11. TABLET
    --------------------------------------------------------- */
-
-/*
-   At 900px wide or narrower, five route-stat columns
-   become cramped.
-
-   We therefore switch to two columns.
-*/
 
 @media (max-width: 900px) {
 
   .stats {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+  .details-grid,
+  .extras-grid {
+    gap: 36px;
   }
 
 }
@@ -585,53 +499,88 @@ footer p {
 
 
 /* ---------------------------------------------------------
-   11. MOBILE
+   12. MOBILE
    --------------------------------------------------------- */
-
-/*
-   At 600px wide or narrower, make several layout changes
-   for phone-sized screens.
-*/
 
 @media (max-width: 600px) {
 
   .hero {
-    min-height: 78vh;
+    min-height: 82vh;
 
-    padding: 48px 20px;
+    padding: 50px 20px;
+  }
+
+
+  .hero h1 {
+    font-size: clamp(4rem, 22vw, 6rem);
+  }
+
+
+  .hero-subtitle {
+    margin-top: 28px;
   }
 
 
   .section {
-    padding: 72px 20px;
+    padding: 68px 20px;
+  }
+
+
+  .route-overview {
+    padding-top: 76px;
+    padding-bottom: 76px;
   }
 
 
   /*
-     Route statistics become one vertical column.
+     Instead of five stats stacked vertically,
+     phones get two columns.
+
+     The final stat naturally occupies the next row.
   */
 
   .stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 30px;
+    gap: 32px 18px;
+
+    margin-top: 52px;
   }
 
 
-  /*
-     Keep the two route buttons comfortable on narrow
-     screens.
-  */
+  .stat strong {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+
+
+  .details-grid,
+  .extras-grid {
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+  }
+
+
+  .route-links {
+    margin-top: 44px;
+  }
+
 
   .route-links .button {
     display: block;
 
     width: 100%;
-    max-width: 320px;
+    max-width: 330px;
 
     margin: 10px 0;
 
     text-align: center;
+  }
+
+
+  .final-cta {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 
 }
