@@ -444,3 +444,9 @@ footer p + p {
   }
 
 }
+
+
+/* TEMPORARY OVERFLOW DEBUGGING */
+* {
+  outline: 1px solid red;
+}
