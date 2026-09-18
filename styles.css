@@ -10,7 +10,6 @@
 :root {
   --cream: #f4f1e8;
   --green: #142219;
-  --gold: #c89d5d;
   --white: #ffffff;
 
   --muted-green: #465248;
@@ -231,7 +230,7 @@ a {
    --------------------------------------------------------- */
 
 .route-intro {
-  max-width: 760px;
+  max-width: 60ch;
   margin: 0;
 }
 
@@ -272,24 +271,6 @@ a {
   line-height: 1.25;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-
-/*
-   One restrained accent beneath the stats.
-*/
-
-.stats::after {
-  content: "";
-
-  grid-column: 1 / -1;
-
-  width: 64px;
-  height: 3px;
-
-  margin-top: 26px;
-
-  background: var(--gold);
 }
 
 
