@@ -114,8 +114,9 @@ a {
 .hero-date-location {
   margin: 28px 0 0;
 
-  font-size: clamp(1.2rem, 2.7vw, 1.85rem);
-  font-weight: 600;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.3rem, 2.7vw, 1.85rem);
+  font-weight: 700;
 
   line-height: 1.2;
   letter-spacing: 0.08em;
@@ -123,6 +124,7 @@ a {
 
   text-shadow: 0 2px 7px rgba(0, 0, 0, 0.65);
 }
+
 
 .hero .button {
   margin-top: 28px;
