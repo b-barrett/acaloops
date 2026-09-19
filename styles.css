@@ -205,7 +205,7 @@ a {
 .section-label {
   margin: 0 0 32px;
 
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.1rem, 4vw, 3.25rem);
   font-weight: 800;
 
   line-height: 0.95;
@@ -259,7 +259,7 @@ a {
 
   color: var(--muted-green);
 
-  font-size: 0.67rem;
+  font-size: 0.75rem;
   font-weight: 700;
 
   line-height: 1.25;
