@@ -206,7 +206,36 @@ a {
 
 
 /* ---------------------------------------------------------
-   6. ROUTE
+   6. DETAILS
+   --------------------------------------------------------- */
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 60px;
+}
+
+.detail h3 {
+  margin: 0 0 8px;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  line-height: 1.6;
+}
+
+.detail p,
+.detail address {
+  margin: 0;
+
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   7. ROUTE
    --------------------------------------------------------- */
 
 .route-intro {
@@ -301,36 +330,16 @@ a {
 
 
 /* ---------------------------------------------------------
-   7. DETAILS
+   8. RSVP
    --------------------------------------------------------- */
 
-.details-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 60px;
-}
-
-.detail h3 {
-  margin: 0 0 8px;
-
-  font-size: 1.1rem;
-  font-weight: 700;
-
-  line-height: 1.6;
-}
-
-.detail p,
-.detail address {
-  margin: 0;
-
-  font-size: 1.1rem;
-  line-height: 1.6;
+.rsvp-section {
+  text-align: center;
 }
 
 
 /* ---------------------------------------------------------
-   8. FOOTER
+   9. FOOTER
    --------------------------------------------------------- */
 
 footer {
@@ -355,7 +364,7 @@ footer p + p {
 
 
 /* ---------------------------------------------------------
-   9. TABLET
+   10. TABLET
    --------------------------------------------------------- */
 
 @media (max-width: 900px) {
@@ -371,7 +380,7 @@ footer p + p {
 
 
 /* ---------------------------------------------------------
-   10. MOBILE
+   11. MOBILE
    --------------------------------------------------------- */
 
 @media (max-width: 600px) {
@@ -407,7 +416,7 @@ footer p + p {
   }
 
   .stat strong {
-    font-size: clamp(2.2rem, 11vw, 3.3rem);
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
   }
    
   .segments-grid {
