@@ -4,35 +4,34 @@
 
 
 /* ---------------------------------------------------------
-   1. DESIGN SYSTEM
+   1. DESIGN TOKENS
    --------------------------------------------------------- */
 
 :root {
+  /* Colors */
   --cream: #f4f1e8;
   --green: #142219;
   --white: #ffffff;
-
   --muted-green: #465248;
   --footer-text: #bdc4be;
 
+  /* Layout */
   --content-width: 1120px;
   --page-padding: 28px;
 }
 
 
 /* ---------------------------------------------------------
-   2. PAGE SETUP
+   2. GLOBAL
    --------------------------------------------------------- */
 
 * {
   box-sizing: border-box;
 }
 
-
 html {
   scroll-behavior: smooth;
 }
-
 
 body {
   margin: 0;
@@ -45,18 +44,22 @@ body {
 
   color: var(--green);
   background: var(--cream);
-
   line-height: 1.5;
-}
 
+  -webkit-font-smoothing: antialiased;
+}
 
 h1,
 h2,
 h3,
-p {
+p,
+address {
   margin-top: 0;
 }
 
+address {
+  font-style: normal;
+}
 
 a {
   color: inherit;
@@ -90,16 +93,14 @@ a {
   background-position: center;
 }
 
-
 .hero-content {
   width: 100%;
   max-width: 1100px;
-  
-  transform: translateY(40px);
+
+  transform: translateY(60px);
 }
 
-
-.hero h1 {
+.hero-title {
   margin: 0;
 
   font-size: clamp(5rem, 14vw, 10.5rem);
@@ -108,7 +109,6 @@ a {
   line-height: 0.8;
   letter-spacing: -0.03em;
 }
-
 
 .hero-subtitle,
 .hero-date-location {
@@ -124,7 +124,6 @@ a {
 
   text-shadow: 0 2px 7px rgba(0, 0, 0, 0.65);
 }
-
 
 .hero .button {
   margin-top: 28px;
@@ -145,8 +144,8 @@ a {
 
   font-size: 0.75rem;
   font-weight: 700;
-
   letter-spacing: 0.1em;
+
   text-decoration: none;
   text-transform: uppercase;
 
@@ -156,11 +155,9 @@ a {
     color 0.15s ease;
 }
 
-
 .button:hover {
   transform: translateY(-2px);
 }
-
 
 .button-light {
   padding: 16px 30px;
@@ -169,18 +166,18 @@ a {
   background: var(--white);
   border-color: var(--white);
 
-  font-size: 1.0rem;
+  font-size: 0.95rem;
+}
+
+.button-dark {
+  color: var(--green);
+  background: transparent;
 }
 
 
 /* ---------------------------------------------------------
-   5. MAIN PAGE
+   5. MAIN LAYOUT
    --------------------------------------------------------- */
-
-/*
-   Everything beneath the hero now shares ONE content width
-   and ONE background.
-*/
 
 .site-content {
   width: min(
@@ -191,18 +188,11 @@ a {
   margin: 0 auto;
 }
 
-
-/*
-   Instead of separate colored bands, sections are separated
-   by spacing and one consistent horizontal rule.
-*/
-
 .content-section {
   padding: 72px 0;
 
   border-bottom: 1px solid rgba(20, 34, 25, 0.28);
 }
-
 
 .section-label {
   margin: 0 0 32px;
@@ -215,12 +205,6 @@ a {
 }
 
 
-.content-section p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-
 /* ---------------------------------------------------------
    6. ROUTE
    --------------------------------------------------------- */
@@ -228,18 +212,18 @@ a {
 .route-intro {
   max-width: 60ch;
   margin: 0;
-}
 
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
 
 .stats {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 
   gap: 28px;
-
   margin-top: 64px;
 }
-
 
 .stat strong {
   display: block;
@@ -253,7 +237,6 @@ a {
   white-space: nowrap;
 }
 
-
 .stat span {
   display: block;
 
@@ -266,16 +249,15 @@ a {
 
   line-height: 1.25;
   letter-spacing: 0.12em;
+
   text-transform: uppercase;
 }
-
 
 .route-links {
   display: flex;
   flex-wrap: wrap;
 
   gap: 12px;
-
   margin-top: 28px;
 }
 
@@ -287,9 +269,9 @@ a {
 .details-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   gap: 60px;
 }
-
 
 .detail h3 {
   margin: 0 0 8px;
@@ -300,9 +282,12 @@ a {
   line-height: 1.6;
 }
 
-
-.detail p {
+.detail p,
+.detail address {
   margin: 0;
+
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 
@@ -318,15 +303,13 @@ footer {
 
   text-align: center;
 
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.6;
 }
-
 
 footer p {
   margin: 0;
 }
-
 
 footer p + p {
   margin-top: 3px;
@@ -334,7 +317,7 @@ footer p + p {
 
 
 /* ---------------------------------------------------------
-   9. TABLET / INTERMEDIATE
+   9. TABLET
    --------------------------------------------------------- */
 
 @media (max-width: 900px) {
@@ -343,11 +326,9 @@ footer p + p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-
   .details-grid {
     gap: 48px;
   }
-
 }
 
 
@@ -361,7 +342,6 @@ footer p + p {
     --page-padding: 20px;
   }
 
-
   .hero {
     min-height: 82vh;
 
@@ -369,38 +349,28 @@ footer p + p {
     padding-bottom: 50px;
   }
 
-
-  .hero h1 {
+  .hero-title {
     font-size: 16vw;
     line-height: 0.82;
     letter-spacing: -0.04em;
+
     white-space: nowrap;
   }
-   
 
   .content-section {
     padding: 64px 0;
   }
 
-
-  .route-intro br {
-    display: none;
-  }
-
-
   .stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
     gap: 34px 22px;
-
     margin-top: 48px;
   }
-
 
   .stat strong {
     font-size: clamp(2.2rem, 11vw, 3.3rem);
   }
-
 
   .details-grid {
     grid-template-columns: 1fr;
@@ -408,12 +378,10 @@ footer p + p {
     gap: 38px;
   }
 
-
   .route-links {
     flex-direction: column;
     align-items: flex-start;
   }
-
 
   .route-links .button {
     width: 100%;
@@ -421,5 +389,4 @@ footer p + p {
 
     text-align: center;
   }
-
 }
