@@ -253,7 +253,6 @@ a {
   text-transform: uppercase;
 }
 
-
 .elevation-profile {
   margin-top: 48px;
 }
@@ -264,12 +263,37 @@ a {
   height: auto;
 }
 
-
 .route-links {
   display: flex;
   flex-wrap: wrap;
 
   gap: 12px;
+  margin-top: 28px;
+}
+
+.segments {
+  margin-top: 64px;
+}
+
+.segments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 48px;
+}
+
+.segments .stats {
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.segments .stat strong {
+  font-size: 1.4rem;
+}
+
+.segments .button {
   margin-top: 28px;
 }
 
@@ -383,7 +407,12 @@ footer p + p {
   .stat strong {
     font-size: clamp(2.2rem, 11vw, 3.3rem);
   }
+   
+  .segments-grid {
+    grid-template-columns: 1fr;
+  }
 
+   
   .details-grid {
     grid-template-columns: 1fr;
 
