@@ -337,6 +337,16 @@ a {
   text-align: center;
 }
 
+.rsvp-section .button {
+  padding: 16px 30px;
+
+  color: var(--white);
+  background: var(--green);
+  border-color: var(--green);
+
+  font-size: 0.95rem;
+}
+
 
 /* ---------------------------------------------------------
    9. FOOTER
