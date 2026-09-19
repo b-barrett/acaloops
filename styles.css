@@ -280,6 +280,11 @@ a {
   grid-template-columns: repeat(3, 1fr);
 
   gap: 48px;
+  text-align: center;
+}
+
+.segments .button + p {
+  margin-top: 12px;
 }
 
 .segments .stats {
