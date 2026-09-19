@@ -266,7 +266,8 @@ a {
 .route-links {
   display: flex;
   flex-wrap: wrap;
-
+  justify-content: center;
+  
   gap: 12px;
   margin-top: 28px;
 }
@@ -279,7 +280,7 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
-  gap: 48px;
+  gap: 72px;
   text-align: center;
 }
 
