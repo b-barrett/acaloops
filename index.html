@@ -5,16 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Acaloops - 50-Mile Loop Ultra - Acalanes Ridge Open Space</title>
+  <title>Acaloops - 50-Mile Loop Ultra | Acalanes Ridge Open Space</title>
 
   <meta
     name="description"
     content="Acaloops is a 50-mile fat ass loop trail ultramarathon at Acalanes Ridge Open Space in Walnut Creek, California."
   >
 
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Acaloops 50-Mile Ultra">
+  <meta
+    property="og:description"
+    content="8.5-mile loop, 2,350 ft vert per lap, sweeping Mount Diablo views. Saturday, May 9, 2027."
+  >
+  <meta property="og:type" content="website">
+
+  <!-- Google Font: used only for supporting hero text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,12 +34,10 @@
 <body>
 
   <!-- HERO -->
-
   <header class="hero">
-
     <div class="hero-content">
 
-      <h1>ACALOOPS</h1>
+      <h1 class="hero-title">ACALOOPS</h1>
 
       <p class="hero-subtitle">
         50-Mile Fat Ass<br>
@@ -40,7 +50,7 @@
       </p>
 
       <p class="hero-date-location">
-        Saturday, May 9, 2027
+        <time datetime="2027-05-09">Saturday, May 9, 2027</time>
       </p>
 
       <a
@@ -49,28 +59,23 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        RSVP HERE TO STAY IN THE LOOP
+        RSVP Here to Stay in the Loop
       </a>
 
     </div>
-
   </header>
 
-
+  <!-- MAIN CONTENT -->
   <main class="site-content">
 
     <!-- ROUTE -->
-
-    <section class="content-section">
+    <section class="content-section" id="route">
 
       <h2 class="section-label">The Route</h2>
 
       <p class="route-intro">
-        8.5-mile loop in Acalanes Ridge Open Space,<br>
-        with 2,350 ft of climbing and sweeping views of Mount Diablo.
+        8.5-mile loop in Acalanes Ridge Open Space, with 2,350 ft of climbing and sweeping views of Mount Diablo.
       </p>
-
-      <!-- Elevation profile will go here -->
 
       <div class="stats">
 
@@ -95,100 +100,77 @@
         </div>
 
         <div class="stat">
-          <strong>14k+ ft</strong>
+          <strong>14K+ ft</strong>
           <span>Total Vert</span>
         </div>
 
       </div>
 
       <div class="route-links">
-          
-          <a
-            class="button button-dark"
-            href="https://www.strava.com/routes/3535715772177636318"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Route on Strava
-          </a>
 
-          <!-- Time-lapse button will go here -->
-          
-          <a
-            class="button button-dark"
-            href="assets/route/acaloop.gpx"
-            download
-          >
-            Download GPX
-          </a>
-        
+        <a
+          class="button button-dark"
+          href="https://www.strava.com/routes/3535715772177636318"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Route on Strava
+        </a>
+
+        <!-- Time-lapse button will go here -->
+
+        <a
+          class="button button-dark"
+          href="assets/route/acaloop.gpx"
+          download
+        >
+          Download GPX
+        </a>
+
       </div>
-  
     </section>
 
-
     <!-- DETAILS -->
-
-    <section class="content-section">
+    <section class="content-section" id="details">
 
       <h2 class="section-label">Details</h2>
 
       <div class="details-grid">
 
         <div class="detail">
-
           <h3>Loop Start/Finish</h3>
-
-          <p>
+          <address>
             Hosted by Ben Barrett<br>
             Mallard Drive<br>
             Walnut Creek, CA 94597
-          </p>
-
+          </address>
         </div>
 
         <div class="detail">
-
           <h3>All-Day Driveway Aid</h3>
-
           <p>
             BYO fuel and drop bag.<br>
             Water, ice, and electrolytes provided.
           </p>
-
         </div>
 
         <div class="detail">
-          
           <h3>Extras</h3>
-          
           <p>
             Custom Acaloops tee for all runners.<br>
             Bragging rights for fastest climbs on three Strava segments.
           </p>
-        
         </div>
 
       </div>
-
     </section>
 
-    
   </main>
 
-
   <!-- FOOTER -->
-
   <footer>
-
-    <p>
-      Acaloops 50-Mile Fat Ass Loop Trail Ultra
-    </p>
-
-    <p>
-      Acalanes Ridge Open Space. Walnut Creek, California
-    </p>
-
+    <p>Acaloops 50-Mile Fat Ass Loop Trail Ultra · Hosted by Ben Barrett · May 9, 2027</p>
+    <p>Acalanes Ridge Open Space · Walnut Creek, California</p>
   </footer>
 
 </body>
