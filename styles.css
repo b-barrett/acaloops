@@ -115,7 +115,7 @@ a {
   margin: 28px 0 0;
 
   font-family: "Barlow Condensed", sans-serif;
-  font-size: clamp(1.3rem, 2.7vw, 1.85rem);
+  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
   font-weight: 700;
 
   line-height: 1.2;
