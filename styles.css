@@ -253,6 +253,18 @@ a {
   text-transform: uppercase;
 }
 
+
+.elevation-profile {
+  margin-top: 48px;
+}
+
+.elevation-profile img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
 .route-links {
   display: flex;
   flex-wrap: wrap;
