@@ -115,10 +115,10 @@ a {
   margin: 28px 0 0;
 
   font-size: clamp(1.2rem, 2.7vw, 1.85rem);
-  font-weight: 700;
+  font-weight: 600;
 
   line-height: 1.2;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 
   text-shadow: 0 2px 7px rgba(0, 0, 0, 0.65);
