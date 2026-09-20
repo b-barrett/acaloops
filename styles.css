@@ -309,10 +309,6 @@ a {
   margin-top: 28px;
 }
 
-.segments {
-  margin-top: 64px;
-}
-
 .segments .section-label {
   text-align: center;
 }
@@ -322,7 +318,7 @@ a {
   grid-template-columns: repeat(2, max-content);
   justify-content: center;
 
-  gap: 48px 48px;
+  gap: 48px 72px;
   text-align: center;
 }
 
