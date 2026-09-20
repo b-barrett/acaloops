@@ -326,6 +326,13 @@ a {
   text-align: center;
 }
 
+.segment-start {
+  display: block;
+  margin-top: 4px;
+
+  font-size: 0.8em;
+}
+
 .segments .stats {
   grid-template-columns: repeat(3, max-content);
   justify-content: center;
