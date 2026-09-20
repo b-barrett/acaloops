@@ -311,11 +311,15 @@ a {
   margin-top: 64px;
 }
 
+.segments .section-label {
+  text-align: center;
+}
+
 .segments-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 72px;
+  gap: 56px 72px;
   text-align: center;
 }
 
@@ -347,6 +351,11 @@ a {
   border-color: var(--green);
 
   font-size: 0.95rem;
+}
+
+.button-light,
+.rsvp-section .button {
+  white-space: nowrap;
 }
 
 
@@ -383,6 +392,10 @@ footer p + p {
 
   .stats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .segments-grid {
+    gap: 56px 36px;
   }
 
   .details-grid {
@@ -452,5 +465,15 @@ footer p + p {
     max-width: 320px;
 
     text-align: center;
+  }
+
+  .button-light, 
+  .rsvp-section .button {
+    max-width: 100%;
+    padding-left: 14px;
+    padding-right: 14px;
+   
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
   }
 }
