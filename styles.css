@@ -320,8 +320,9 @@ a {
 .segments-grid {
   display: grid;
   grid-template-columns: repeat(2, max-content);
+  justify-content: center;
 
-  gap: 56px 72px;
+  gap: 48px 48px;
   text-align: center;
 }
 
