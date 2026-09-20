@@ -324,9 +324,10 @@ a {
 }
 
 .segments .stats {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
 
-  gap: 12px;
+  gap: 24px;
   margin-top: 24px;
 }
 
