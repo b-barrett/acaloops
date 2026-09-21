@@ -352,7 +352,7 @@ a {
    9. RSVP
    --------------------------------------------------------- */
 
-.rsvp-section {
+.content-section.rsvp-section {
   padding: 48px 0;
   text-align: center;
 }
