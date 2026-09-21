@@ -409,7 +409,8 @@ footer p + p {
   }
 
   .segments-grid {
-    gap: 56px 36px;
+  grid-template-columns: 1fr;
+  gap: 48px;
   }
 
   .details-grid {
@@ -457,11 +458,6 @@ footer p + p {
   .stat strong {
     font-size: clamp(1.8rem, 8vw, 2.8rem);
   }
-   
-  .segments-grid {
-    grid-template-columns: 1fr;
-  }
-
    
   .details-grid {
     grid-template-columns: 1fr;
