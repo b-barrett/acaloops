@@ -8,12 +8,12 @@ Website for the **Acaloops 50-Mile Fat Ass Loop Trail Ultramarathon** at Acalane
 
 **Date:** Saturday, May 15, 2027
 
-Acaloops is a loop trail ultra built around an approximately **8.5-mile course with 2,400 feet of climbing per lap**.
+Acaloops is a loop trail ultra built around an approximately **8.5-mile course with 2,400+ feet of climbing per lap**.
 
 Six laps = approximately:
 
 - 51 miles
-- 14,000+ feet of climbing
+- 14,500+ feet of climbing
 
 The event starts and finishes on Mallard Drive in Walnut Creek, adjacent to Acalanes Ridge Open Space.
 
@@ -27,13 +27,14 @@ It uses:
 - CSS: `styles.css`
 - Images and route assets: `assets/`
 - Python elevation-profile generator: `scripts/generate_elevation_profile.py`
+- Strava's external embed script for the interactive route
 
 There is:
 
 - no framework
 - no build system
 - no CMS
-- no JavaScript
+- no custom JavaScript
 - no backend
 - no database
 
@@ -66,9 +67,11 @@ Hero
 
 Event Info
 ────────────────────
-The Route
+The Loop
 ────────────────────
 Segment Showdown
+────────────────────
+Explore the Loop
 ────────────────────
 RSVP
 ────────────────────
@@ -83,11 +86,12 @@ Current section IDs include:
 #details
 #route
 #segments
+#interactive-route
 ```
 
 These IDs can also be used for direct links to individual sections if needed later.
 
-## The Route
+## The Loop
 
 The GPX file used by the site is:
 
@@ -98,11 +102,11 @@ assets/route/acaloop.gpx
 Current route summary:
 
 ```text
-Distance:       ~8.5 mi
-Climbing:       ~2,400 ft
+Distance:       8.5 mi
+Climbing:       2,400+ ft
 Laps:           6
-Total distance: ~51 mi
-Total climbing: 14,000+ ft
+Total distance: 51 mi
+Total climbing: 14,500+ ft
 ```
 
 The current Strava route is:
@@ -185,11 +189,12 @@ Do not automatically replace this mobile `1fr` with `max-content`. The full-widt
 
 ## Responsive Layout
 
-The stylesheet currently has two main breakpoints:
+The stylesheet currently uses three responsive breakpoints:
 
 ```text
-900px — tablet
-600px — mobile
+900px — general tablet adjustments
+800px — Segment Showdown switches from 2 × 2 to 1 × 4
+600px — general mobile adjustments
 ```
 
 These are based on where the layout benefits from changing rather than on specific device models.
@@ -239,7 +244,8 @@ The large `ACALOOPS` hero title intentionally continues to use the main sans-ser
 9. RSVP
 10. FOOTER
 11. TABLET
-12. MOBILE
+12. SEGMENT GRID BREAKPOINT
+13. MOBILE
 ```
 
 When adding or modifying styles, prefer editing the appropriate existing section instead of creating unnecessary new selectors.
@@ -530,12 +536,10 @@ When adding something new, prefer extending the existing visual system rather th
 
 Ideas that have been discussed but are not required for the current site include:
 
-- route time-lapse
-- additional event details
+- route time-lapse video
 - direct links to individual page sections
 - richer social-sharing metadata
-- updated route or Segment Showdown information
-- additional photos
+- annual results and recap photos
 - more detailed documentation if the site becomes significantly more complex
 
 The current static architecture does not prevent adding a backend, database, or other services later if they ever become useful.
