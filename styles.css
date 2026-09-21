@@ -145,7 +145,7 @@ a {
 .button {
   display: inline-block;
 
-  padding: 13px 23px;
+  padding: 12px 24px;
 
   border: 2px solid currentColor;
   border-radius: 999px;
@@ -167,21 +167,21 @@ a {
   transform: translateY(-2px);
 }
 
-.button-light {
-  padding: 16px 30px;
+.button-large {
+  padding: 16px 32px;
+  font-size: 0.95rem;
+}
 
+.button-light {
   color: var(--green);
   background: var(--white);
   border-color: var(--white);
-
-  font-size: 0.95rem;
 }
 
 .button-dark {
   color: var(--green);
   background: transparent;
 }
-
 
 /* ---------------------------------------------------------
    5. MAIN LAYOUT
@@ -358,18 +358,9 @@ a {
 }
 
 .rsvp-section .button {
-  padding: 16px 30px;
-
   color: var(--white);
   background: var(--green);
   border-color: var(--green);
-
-  font-size: 0.95rem;
-}
-
-.button-light,
-.rsvp-section .button {
-  white-space: nowrap;
 }
 
 
@@ -483,13 +474,13 @@ footer p + p {
     text-align: center;
   }
 
-  .button-light, 
-  .rsvp-section .button {
+  .button-large {
     max-width: 100%;
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
    
     font-size: 0.75rem;
     letter-spacing: 0.07em;
   }
+   
 }
