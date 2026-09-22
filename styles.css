@@ -478,7 +478,7 @@ footer p + p {
     max-width: 100%;
     padding-left: 24px;
     padding-right: 24px;
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
   }
    
 }
