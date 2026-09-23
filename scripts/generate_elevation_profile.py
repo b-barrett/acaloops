@@ -51,10 +51,10 @@ X_TICK_INTERVAL = 1       # Whole miles between distance labels.
 # Segment name, approximate starting mile, segment length in miles.
 # Adjust the distances here if the highlighted climbs need fine-tuning.
 SEGMENTS = [
-    ("Suburban Escape", 0.25, 0.80),
-    ("Sousa to Summit", 4.00, 0.95),
-    ("Short and Steep", 5.75, 0.20),
-    ("Oh No, Not Yet", 6.75, 0.25),
+    ("Suburban Escape", 0.20, 0.85),
+    ("Sousa to Summit", 3.95, 0.95),
+    ("Short and Steep", 5.80, 0.20),
+    ("Oh No, Not Yet", 6.65, 0.275),
 ]
 
 M_TO_MI = 0.000621371
