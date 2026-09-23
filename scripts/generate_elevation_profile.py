@@ -55,10 +55,10 @@ SEGMENT_LABEL_GAP = 8
 # Segment name and approximate start/end miles.
 # Adjust the distances here if the highlighted climbs need fine-tuning.
 SEGMENTS = [
-    {"name": "Suburban Escape", "start": 0.20, "end": 1.05},
+    {"name": "Suburban Escape", "start": 0.20, "end": 1.10},
     {"name": "Sousa to Summit", "start": 3.95, "end": 4.90},
     {"name": "Short and Steep", "start": 5.80, "end": 6.00},
-    {"name": "Oh No, Not Yet", "start": 6.65, "end": 7.05},
+    {"name": "Oh No, Not Yet", "start": 6.65, "end": 7.10},
 ]
 
 M_TO_MI = 0.000621371
