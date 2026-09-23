@@ -47,8 +47,8 @@ PROFILE_LINE_WIDTH = 4
 GRID_LINE_WIDTH = 1
 AXIS_LINE_WIDTH = 1.5
 X_TICK_INTERVAL = 1       # Whole miles between distance labels.
-MARKER_OFFSET = 23        # Pixels below each highlighted segment.
-MARKER_RADIUS = 11
+MARKER_OFFSET = 26        # Pixels below each highlighted segment.
+MARKER_RADIUS = 13
 SEGMENT_LABEL_SIZE = 16
 SEGMENT_LABEL_GAP = 8
 
