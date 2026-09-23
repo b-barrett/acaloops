@@ -47,14 +47,17 @@ PROFILE_LINE_WIDTH = 4
 GRID_LINE_WIDTH = 1
 AXIS_LINE_WIDTH = 1.5
 X_TICK_INTERVAL = 1       # Whole miles between distance labels.
+MARKER_OFFSET = 23        # Pixels below each highlighted segment.
+MARKER_RADIUS = 11
+LEGEND_HEIGHT = 74        # Extra SVG space; does not alter plot proportions.
 
 # Segment name, approximate starting mile, segment length in miles.
 # Adjust the distances here if the highlighted climbs need fine-tuning.
 SEGMENTS = [
-    ("Suburban Escape", 0.20, 0.85),
-    ("Sousa to Summit", 3.95, 0.95),
-    ("Short and Steep", 5.80, 0.20),
-    ("Oh No, Not Yet", 6.65, 0.275),
+    ("Suburban Escape", 0.25, 0.80),
+    ("Sousa to Summit", 4.00, 0.95),
+    ("Short and Steep", 5.75, 0.20),
+    ("Oh No, Not Yet", 6.75, 0.25),
 ]
 
 M_TO_MI = 0.000621371
@@ -157,7 +160,7 @@ def make_svg(miles, feet, height):
 
     ve = actual_exaggeration(max_mi, height)
     lines = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {SVG_WIDTH} {height}" role="img" aria-labelledby="title desc">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {SVG_WIDTH} {height + LEGEND_HEIGHT}" role="img" aria-labelledby="title desc">',
         '<title id="title">Acaloops elevation profile</title>',
         f'<desc id="desc">Elevation profile for the {max_mi:.1f}-mile Acaloops loop, displayed from {MIN_ELEVATION_FT} to {MAX_ELEVATION_FT} feet at approximately {ve:.1f}x vertical exaggeration.</desc>',
         f'<rect width="100%" height="100%" fill="{CREAM}"/>',
@@ -186,7 +189,7 @@ def make_svg(miles, feet, height):
             return len(miles) - 1
         return i if miles[i] - distance < distance - miles[i - 1] else i - 1
 
-    for name, start, length in SEGMENTS:
+    for number, (name, start, length) in enumerate(SEGMENTS, 1):
         finish = start + length
         if start < 0 or finish > max_mi:
             raise ValueError(f"Segment {name!r} falls outside the route.")
@@ -200,6 +203,14 @@ def make_svg(miles, feet, height):
             f'<polyline points="{highlighted}" fill="none" stroke="{SEGMENT_COLOR}" '
             f'stroke-width="{PROFILE_LINE_WIDTH}" stroke-linejoin="round" stroke-linecap="round"/>'
         )
+
+        # Number the start of each red segment, below the profile line.
+        mx, my = x(miles[first]), y(feet[first]) + MARKER_OFFSET
+        lines += [
+            f'<circle cx="{mx:.1f}" cy="{my:.1f}" r="{MARKER_RADIUS}" fill="{SEGMENT_COLOR}"/>',
+            f'<text x="{mx:.1f}" y="{my:.1f}" text-anchor="middle" dominant-baseline="central" '
+            f'font-family="{FONT}" font-size="14" font-weight="700" fill="{CREAM}">{number}</text>',
+        ]
 
     # Distance axis and labels.
     lines.append(f'<line x1="{LEFT_MARGIN}" y1="{baseline:.1f}" x2="{SVG_WIDTH-RIGHT_MARGIN}" y2="{baseline:.1f}" stroke="{GREEN}" stroke-width="{AXIS_LINE_WIDTH}"/>')
@@ -218,6 +229,16 @@ def make_svg(miles, feet, height):
     ]
     for mi, ft in ((miles[0], feet[0]), (miles[-1], feet[-1])):
         lines.append(f'<circle cx="{x(mi):.1f}" cy="{y(ft):.1f}" r="6" fill="{CREAM}" stroke="{GREEN}" stroke-width="3"/>')
+
+    # Legend below the chart, in the SVG's extra space.
+    for index, (name, _, _) in enumerate(SEGMENTS):
+        cx = LEFT_MARGIN + plot_w * (0.25 + 0.5 * (index % 2))
+        cy = height + 28 + 27 * (index // 2)
+        lines.append(
+            f'<text x="{cx:.1f}" y="{cy}" text-anchor="middle" font-family="{FONT}" '
+            f'font-size="16" fill="{GREEN}"><tspan fill="{SEGMENT_COLOR}" '
+            f'font-weight="700">{index + 1}.</tspan> {html.escape(name)}</text>'
+        )
 
     lines.append("</svg>")
     return "\n".join(lines)
@@ -250,7 +271,7 @@ def main():
         height = height_for_exaggeration(miles[-1], exaggeration)
         output_path = OUTPUT_DIR / f"elevation-profile-{exaggeration}x.svg"
         output_path.write_text(make_svg(miles, feet, height), encoding="utf-8")
-        print(f"Created:       {output_path.relative_to(ROOT)} ({SVG_WIDTH} x {height})")
+        print(f"Created:       {output_path.relative_to(ROOT)} ({SVG_WIDTH} x {height + LEGEND_HEIGHT})")
 
     print("\nNote: raw GPX gain can differ from Strava/COROS because those platforms")
     print("smooth and correct elevation data differently.")
