@@ -26,7 +26,7 @@ CREAM = "#f4f1e8"
 GREEN = "#142219"
 MUTED = "#465248"
 GRID = "#c9c7be"
-SEGMENT_COLOR = "#efbf04"
+SEGMENT_COLOR = "#BA8E23"
 FONT = "Helvetica Neue, Helvetica, Arial, sans-serif"
 
 SVG_WIDTH = 1200
