@@ -13,7 +13,7 @@
   --green: #142219;
   --white: #ffffff;
   --muted-green: #465248;
-  --gold: #EFBF04;
+  --dark-yellow: #BA8E23;
   --footer-text: #bdc4be;
 
   /* Layout */
@@ -339,7 +339,7 @@ a {
   margin: 0 auto 16px;
 
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--dark-yellow);
   color: var(--cream);
 
   font-size: 14px;
