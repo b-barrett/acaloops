@@ -13,6 +13,7 @@
   --green: #142219;
   --white: #ffffff;
   --muted-green: #465248;
+  --orange: #f4511e;
   --footer-text: #bdc4be;
 
   /* Layout */
@@ -326,6 +327,24 @@ a {
 
   gap: 48px 96px;
   text-align: center;
+}
+
+.segment-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+  margin: 0 auto 12px;
+
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--cream);
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .segment-start {
