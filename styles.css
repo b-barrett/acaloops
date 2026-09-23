@@ -334,9 +334,9 @@ a {
   align-items: center;
   justify-content: center;
 
-  width: 22px;
-  height: 22px;
-  margin: 0 auto 12px;
+  width: 26px;
+  height: 26px;
+  margin: 0 auto 16px;
 
   border-radius: 50%;
   background: var(--orange);
