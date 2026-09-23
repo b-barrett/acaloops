@@ -42,14 +42,14 @@ VERTICAL_EXAGGERATIONS = (12, 16, 20)
 
 # Appearance: adjust these without hunting through SVG markup.
 TICK_FONT_SIZE = 18
-AXIS_TITLE_FONT_SIZE = 18
+AXIS_TITLE_FONT_SIZE = 20
 PROFILE_LINE_WIDTH = 4
 GRID_LINE_WIDTH = 1
 AXIS_LINE_WIDTH = 1.5
 X_TICK_INTERVAL = 1       # Whole miles between distance labels.
 MARKER_OFFSET = 26        # Pixels below each highlighted segment.
 MARKER_RADIUS = 13
-SEGMENT_LABEL_SIZE = 16
+SEGMENT_LABEL_SIZE = 20
 SEGMENT_LABEL_GAP = 8
 
 # Segment name and approximate start/end miles.
