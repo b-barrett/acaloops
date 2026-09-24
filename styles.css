@@ -13,7 +13,7 @@
   --green: #142219;
   --white: #ffffff;
   --muted-green: #465248;
-  --dark-yellow: #BA8E23;
+  --segment: #BA8E23;
   --footer-text: #bdc4be;
 
   /* Layout */
@@ -339,12 +339,16 @@ a {
   margin: 0 auto 16px;
 
   border-radius: 50%;
-  background: var(--dark-yellow);
+  background: var(--segment);
   color: var(--cream);
 
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
+}
+
+.segment-button {
+  border-color: var(--segment);
 }
 
 .segment-start {
