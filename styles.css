@@ -98,6 +98,7 @@ a {
   width: 100%;
   max-width: 1100px;
 
+  /* Visually lower the hero copy against the background image. */
   transform: translateY(40px);
 }
 
@@ -255,6 +256,9 @@ a {
   line-height: 1.6;
 }
 
+/* Shared stat grid.
+   Defaults to the five-column route summary.
+   Segment Showdown overrides this below with three columns. */
 .stats {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -358,6 +362,7 @@ a {
   font-size: 0.8em;
 }
 
+/* Compact three-column version used inside each Strava segment. */
 .segments .stats {
   grid-template-columns: repeat(3, max-content);
   justify-content: center;
