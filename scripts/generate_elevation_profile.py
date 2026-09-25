@@ -2,7 +2,7 @@
 """Generate 12x, 16x, and 20x Acaloops elevation-profile SVGs.
 
 Run from repo root: python3 scripts/generate_elevation_profile.py
-Input:  assets/route/acaloop.gpx
+Input:  assets/route/Morning_Trail_Run.gpx
 Output: assets/images/elevation-profile-{12x,16x,20x}.svg
 """
 
@@ -19,7 +19,7 @@ import xml.etree.ElementTree as ET
 # For normal updates, this is the part you're likely to touch.
 
 ROOT = Path(__file__).resolve().parents[1]
-GPX_PATH = ROOT / "assets" / "route" / "acaloop.gpx"
+GPX_PATH = ROOT / "assets" / "route" / "Morning_Trail_Run.gpx"
 OUTPUT_DIR = ROOT / "assets" / "images"
 
 CREAM = "#f4f1e8"
