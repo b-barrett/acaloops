@@ -28,7 +28,6 @@ MUTED = "#465248"
 GRID = "#c9c7be"
 SEGMENT_COLOR = "#BA8E23"
 FONT = "Helvetica Neue, Helvetica, Arial, sans-serif"
-GAIN_BAR_COLOR = "#000000"
 
 SVG_WIDTH = 1200
 LEFT_MARGIN = 84
@@ -270,7 +269,7 @@ def make_svg(miles, feet, height):
         bar_h = gain / max_gain * bar_height
 
         lines += [
-            f'<rect x="{bar_x:.1f}" y="{bar_top + bar_height - bar_h:.1f}" width="{bar_w:.1f}" height="{bar_h:.1f}" rx="3" fill="{GAIN_BAR_COLOR}"/>',
+            f'<rect x="{bar_x:.1f}" y="{bar_top + bar_height - bar_h:.1f}" width="{bar_w:.1f}" height="{bar_h:.1f}" rx="3" fill="{GREEN}" opacity="0.25"/>',
             f'<text x="{bar_x + bar_w/2:.1f}" y="{bar_top + bar_height - bar_h - 7:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{SEGMENT_LABEL_SIZE}" font-weight="700" fill="{GREEN}">{gain:.0f}</text>',
         ]
 
