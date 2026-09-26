@@ -31,7 +31,10 @@ FONT = "Helvetica Neue, Helvetica, Arial, sans-serif"
 
 SVG_WIDTH = 1200
 LEFT_MARGIN = 108
+
 Y_AXIS_TITLE_X = 32
+X_AXIS_TITLE_GAP = 68
+
 RIGHT_MARGIN = 32
 TOP_MARGIN = 32
 BOTTOM_MARGIN = 84
@@ -271,7 +274,7 @@ def make_svg(miles, feet, height):
     mile_gains = gain_by_mile(miles, feet)
     max_gain = max(gain for _, _, gain in mile_gains)
 
-    miles_title_y = baseline + (LEFT_MARGIN - 18)
+    miles_title_y = baseline + X_AXIS_TITLE_GAP
 
     # Gain chart positioning.
     bar_group_offset = 15      # Moves bars, numbers, and gain title together.

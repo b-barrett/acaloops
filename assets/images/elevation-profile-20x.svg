@@ -57,26 +57,26 @@
 <text x="1105.0" y="390.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" fill="#465248">8</text>
 <line x1="1168.0" y1="362.0" x2="1168.0" y2="369.0" stroke="#142219" stroke-width="1.5"/>
 <text x="1168.0" y="390.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" fill="#465248">8.5</text>
-<rect x="113.0" y="504.8" width="114.6" height="56.2" rx="3" fill="#142219" opacity="0.25"/>
-<text x="170.3" y="497.8" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">479</text>
-<rect x="237.6" y="529.1" width="114.6" height="31.9" rx="3" fill="#142219" opacity="0.25"/>
-<text x="294.9" y="522.1" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">272</text>
-<rect x="362.2" y="550.6" width="114.6" height="10.4" rx="3" fill="#142219" opacity="0.25"/>
-<text x="419.5" y="543.6" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">89</text>
-<rect x="486.9" y="537.2" width="114.6" height="23.8" rx="3" fill="#142219" opacity="0.25"/>
-<text x="544.2" y="530.2" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">203</text>
-<rect x="611.5" y="501.0" width="114.6" height="60.0" rx="3" fill="#142219" opacity="0.25"/>
-<text x="668.8" y="494.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">512</text>
-<rect x="736.1" y="521.0" width="114.6" height="40.0" rx="3" fill="#142219" opacity="0.25"/>
-<text x="793.4" y="514.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">341</text>
-<rect x="860.7" y="517.9" width="114.6" height="43.1" rx="3" fill="#142219" opacity="0.25"/>
-<text x="918.0" y="510.9" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">367</text>
-<rect x="985.3" y="544.8" width="114.6" height="16.2" rx="3" fill="#142219" opacity="0.25"/>
-<text x="1042.6" y="537.8" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">138</text>
-<rect x="1110.0" y="559.8" width="53.0" height="1.2" rx="3" fill="#142219" opacity="0.25"/>
-<text x="1136.5" y="552.8" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">10</text>
-<text x="638.0" y="452.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="1.5" fill="#465248">MILES</text>
-<text x="638.0" y="601.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="1.5" fill="#465248">VERTICAL GAIN BY MILE (FT)</text>
+<rect x="113.0" y="482.8" width="114.6" height="56.2" rx="3" fill="#142219" opacity="0.25"/>
+<text x="170.3" y="475.8" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">479</text>
+<rect x="237.6" y="507.1" width="114.6" height="31.9" rx="3" fill="#142219" opacity="0.25"/>
+<text x="294.9" y="500.1" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">272</text>
+<rect x="362.2" y="528.6" width="114.6" height="10.4" rx="3" fill="#142219" opacity="0.25"/>
+<text x="419.5" y="521.6" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">89</text>
+<rect x="486.9" y="515.2" width="114.6" height="23.8" rx="3" fill="#142219" opacity="0.25"/>
+<text x="544.2" y="508.2" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">203</text>
+<rect x="611.5" y="479.0" width="114.6" height="60.0" rx="3" fill="#142219" opacity="0.25"/>
+<text x="668.8" y="472.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">512</text>
+<rect x="736.1" y="499.0" width="114.6" height="40.0" rx="3" fill="#142219" opacity="0.25"/>
+<text x="793.4" y="492.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">341</text>
+<rect x="860.7" y="495.9" width="114.6" height="43.1" rx="3" fill="#142219" opacity="0.25"/>
+<text x="918.0" y="488.9" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">367</text>
+<rect x="985.3" y="522.8" width="114.6" height="16.2" rx="3" fill="#142219" opacity="0.25"/>
+<text x="1042.6" y="515.8" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">138</text>
+<rect x="1110.0" y="537.8" width="53.0" height="1.2" rx="3" fill="#142219" opacity="0.25"/>
+<text x="1136.5" y="530.8" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#142219">10</text>
+<text x="638.0" y="430.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="1.5" fill="#465248">MILES</text>
+<text x="638.0" y="579.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="1.5" fill="#465248">VERTICAL GAIN BY MILE (FT)</text>
 <text x="32" y="197.0" text-anchor="middle" transform="rotate(-90 32 197.0)" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="1.5" fill="#465248">ELEVATION (FT)</text>
 <circle cx="108.0" cy="293.1" r="6" fill="#f4f1e8" stroke="#142219" stroke-width="3"/>
 <circle cx="1168.0" cy="288.5" r="6" fill="#f4f1e8" stroke="#142219" stroke-width="3"/>
