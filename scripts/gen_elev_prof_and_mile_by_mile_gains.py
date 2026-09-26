@@ -30,7 +30,8 @@ SEGMENT_COLOR = "#BA8E23"
 FONT = "Helvetica Neue, Helvetica, Arial, sans-serif"
 
 SVG_WIDTH = 1200
-LEFT_MARGIN = 96
+LEFT_MARGIN = 108
+Y_AXIS_TITLE_X = 32
 RIGHT_MARGIN = 32
 TOP_MARGIN = 32
 BOTTOM_MARGIN = 84
@@ -294,7 +295,7 @@ def make_svg(miles, feet, height):
     lines += [
         f'<text x="{LEFT_MARGIN + plot_w/2:.1f}" y="{miles_title_y:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">MILES</text>',
         f'<text x="{LEFT_MARGIN + plot_w/2:.1f}" y="{gain_title_y:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">VERTICAL GAIN BY MILE (FT)</text>',
-        f'<text x="18" y="{TOP_MARGIN + plot_h/2:.1f}" text-anchor="middle" transform="rotate(-90 18 {TOP_MARGIN + plot_h/2:.1f})" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">ELEVATION (FT)</text>',
+        f'<text x="{Y_AXIS_TITLE_X}" y="{TOP_MARGIN + plot_h/2:.1f}" text-anchor="middle" transform="rotate(-90 {Y_AXIS_TITLE_X} {TOP_MARGIN + plot_h/2:.1f})" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">ELEVATION (FT)</text>',
     ]
     for mi, ft in ((miles[0], feet[0]), (miles[-1], feet[-1])):
         lines.append(f'<circle cx="{x(mi):.1f}" cy="{y(ft):.1f}" r="6" fill="{CREAM}" stroke="{GREEN}" stroke-width="3"/>')
