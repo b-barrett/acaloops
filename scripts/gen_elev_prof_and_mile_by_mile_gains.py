@@ -58,7 +58,7 @@ SEGMENT_LABEL_GAP = 8
 SEGMENTS = [
     {"name": "Suburban Escape", "label_lines": ["SUBURBAN", "ESCAPE"], "start": 0.47, "end": 0.96},
     {"name": "Sousa to Summit", "label_lines": ["SOUSA TO", "SUMMIT"], "start": 3.95, "end": 4.90},
-    {"name": "Short n Steep", "label_lines": ["SHORT", "STEEP"], "start": 5.80, "end": 6.00},
+    {"name": "Short and Steep", "label_lines": ["SHORT", "AND", "STEEP"], "start": 5.80, "end": 6.00},
     {"name": "Oh No, Not Yet", "label_lines": ["OH NO,", "NOT YET"], "start": 6.665, "end": 7.065},
 ]
 
