@@ -56,10 +56,10 @@ SEGMENT_LABEL_GAP = 8
 # Segment name and approximate start/end miles.
 # Adjust the distances here if the highlighted climbs need fine-tuning.
 SEGMENTS = [
-    {"name": "Suburban Escape", "start": 0.47, "end": 0.96},
-    {"name": "Sousa to Summit", "start": 3.95, "end": 4.90},
-    {"name": "Short and Steep", "start": 5.80, "end": 6.00},
-    {"name": "Oh No, Not Yet", "start": 6.65, "end": 7.075},
+    {"name": "Suburban Escape", "label_lines": ["SUBURBAN", "ESCAPE"], "start": 0.47, "end": 0.96},
+    {"name": "Sousa to Summit", "label_lines": ["SOUSA TO", "SUMMIT"], "start": 3.95, "end": 4.90},
+    {"name": "Short n Steep", "label_lines": ["SHORT", "STEEP"], "start": 5.80, "end": 6.00},
+    {"name": "Oh No, Not Yet", "label_lines": ["OH NO,", "NOT YET"], "start": 6.665, "end": 7.065},
 ]
 
 M_TO_MI = 0.000621371
@@ -209,7 +209,11 @@ def make_svg(miles, feet, height):
         return i if miles[i] - distance < distance - miles[i - 1] else i - 1
 
     for number, segment in enumerate(SEGMENTS, 1):
-        name, start, finish = segment["name"], segment["start"], segment["end"]
+        name = segment["name"]
+        label_lines = segment["label_lines"]
+        start = segment["start"]
+        finish = segment["end"]
+        
         if start < 0 or finish > max_mi or finish <= start:
             raise ValueError(f"Segment {name!r} falls outside the route or has invalid bounds.")
 
@@ -225,18 +229,31 @@ def make_svg(miles, feet, height):
 
         # Number and name just below the segment's starting point.
         mx, my = x(miles[first]), y(feet[first]) + MARKER_OFFSET
-        # The third and fourth climbs are close together: label #3 on the left.
-        label_left = number == 3
-        label_x = mx + (-1 if label_left else 1) * (MARKER_RADIUS + SEGMENT_LABEL_GAP)
-        label_anchor = "end" if label_left else "start"
+
+        label_x = mx + MARKER_RADIUS + SEGMENT_LABEL_GAP
+        label_anchor = "start"
+
         lines += [
             f'<circle cx="{mx:.1f}" cy="{my:.1f}" r="{MARKER_RADIUS}" fill="{SEGMENT_COLOR}"/>',
             f'<text x="{mx:.1f}" y="{my:.1f}" text-anchor="middle" dominant-baseline="central" '
             f'font-family="{FONT}" font-size="14" font-weight="700" fill="{CREAM}">{number}</text>',
-            f'<text x="{label_x:.1f}" y="{my:.1f}" text-anchor="{label_anchor}" '
-            f'dominant-baseline="central" font-family="{FONT}" font-size="{SEGMENT_LABEL_SIZE}" '
-            f'font-weight="600" fill="{GREEN}">{html.escape(name)}</text>',
         ]
+
+        text_block = [
+            f'<text x="{label_x:.1f}" y="{my:.1f}" '
+            f'text-anchor="{label_anchor}" '
+            f'font-family="{FONT}" font-size="{SEGMENT_LABEL_SIZE}" '
+            f'font-weight="600" fill="{GREEN}">'
+        ]
+
+        for i, line in enumerate(label_lines):
+            dy = 0 if i == 0 else SEGMENT_LABEL_SIZE + 2
+            text_block.append(
+                f'<tspan x="{label_x:.1f}" dy="{dy}">{html.escape(line)}</tspan>'
+            )
+
+        text_block.append('</text>')
+        lines.append("".join(text_block))
 
     # Distance axis and labels.
     lines.append(f'<line x1="{LEFT_MARGIN}" y1="{baseline:.1f}" x2="{SVG_WIDTH-RIGHT_MARGIN}" y2="{baseline:.1f}" stroke="{GREEN}" stroke-width="{AXIS_LINE_WIDTH}"/>')
@@ -247,7 +264,6 @@ def make_svg(miles, feet, height):
             f'<line x1="{xx:.1f}" y1="{baseline:.1f}" x2="{xx:.1f}" y2="{baseline+7:.1f}" stroke="{GREEN}" stroke-width="{AXIS_LINE_WIDTH}"/>',
             f'<text x="{xx:.1f}" y="{baseline+28:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{TICK_FONT_SIZE}" fill="{MUTED}">{html.escape(label)}</text>',
         ]
-
 
     # Gain by mile.
     mile_gains = gain_by_mile(miles, feet)
