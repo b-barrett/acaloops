@@ -33,7 +33,7 @@ SVG_WIDTH = 1200
 LEFT_MARGIN = 108
 
 Y_AXIS_TITLE_X = 32
-X_AXIS_TITLE_GAP = 68
+X_AXIS_TITLE_GAP = 64
 
 RIGHT_MARGIN = 32
 TOP_MARGIN = 32
@@ -280,7 +280,7 @@ def make_svg(miles, feet, height):
     bar_group_offset = 15      # Moves bars, numbers, and gain title together.
     gain_title_gap = 40        # Space between bottom of bars and gain title.
 
-    bar_top = miles_title_y + 34 + bar_group_offset
+    bar_top = miles_title_y + 48 + bar_group_offset
     bar_height = 80
     gain_title_y = bar_top + bar_height + gain_title_gap
 
