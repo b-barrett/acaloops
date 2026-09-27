@@ -281,7 +281,7 @@ def make_svg(miles, feet, height):
     gain_title_gap = 40        # Space between bottom of bars and gain title.
 
     bar_top = miles_title_y + 34 + bar_group_offset
-    bar_height = 60
+    bar_height = 80
     gain_title_y = bar_top + bar_height + gain_title_gap
 
     for start, finish, gain in mile_gains:
