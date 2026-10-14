@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Generate 12x, 16x, and 20x Acaloops elevation-profile SVGs.
+"""Generate 20x, 24x, and 28x Acaloops elevation-profile SVGs.
 
 Run from repo root: python3 scripts/generate_elevation_profile.py
 Input:  assets/route/Morning_Trail_Run.gpx
-Output: assets/images/elevation-profile-{12x,16x,20x}.svg
+Output: assets/images/elevation-profile-{20x,24x,28x}.svg
 """
 
 from pathlib import Path
@@ -29,34 +29,71 @@ GRID = "#c9c7be"
 SEGMENT_COLOR = "#BA8E23"
 FONT = "Helvetica Neue, Helvetica, Arial, sans-serif"
 
+# =========================================================
+# CHART LAYOUT
+# =========================================================
+
 SVG_WIDTH = 1200
+
 LEFT_MARGIN = 108
-
-Y_AXIS_TITLE_X = 32
-X_AXIS_TITLE_GAP = 64
-
 RIGHT_MARGIN = 32
 TOP_MARGIN = 32
 BOTTOM_MARGIN = 84
-GAIN_SECTION_HEIGHT = 175
+
+GAIN_SECTION_HEIGHT = 200
+
+# =========================================================
+# AXES + SCALE
+# =========================================================
+
+Y_AXIS_TITLE_CENTER_X = 32
+X_AXIS_TO_TITLE_GAP = 68
+
+X_TICK_INTERVAL = 1
+X_TICK_LENGTH = 7
+X_TICK_LABEL_GAP = 28
 
 MIN_ELEVATION_FT = 100
 MAX_ELEVATION_FT = 800
 ELEVATION_TICK_FT = 100
+
 VERTICAL_EXAGGERATIONS = (20, 24, 28)
 
-# Appearance: adjust these without hunting through SVG markup.
+# =========================================================
+# TYPOGRAPHY
+# =========================================================
+
 TICK_FONT_SIZE = 24
 
 AXIS_TITLE_FONT_SIZE = 24
+
+SEGMENT_LABEL_SIZE = 20
+
+SEGMENT_NUMBER_SIZE = 14
+SEGMENT_NAME_LINE_SPACING = 2
+
+GAIN_NUMBER_SIZE = 20
+
+# =========================================================
+# LINES + GRID
+# =========================================================
+
 PROFILE_LINE_WIDTH = 4
 GRID_LINE_WIDTH = 1
 AXIS_LINE_WIDTH = 1.5
-X_TICK_INTERVAL = 1       # Whole miles between distance labels.
-MARKER_OFFSET = 26        # Pixels below each highlighted segment.
+
+# =========================================================
+# SEGMENT MARKERS
+# =========================================================
+
+MARKER_OFFSET = 26
 MARKER_RADIUS = 13
-SEGMENT_LABEL_SIZE = 20
-SEGMENT_LABEL_GAP = 8
+MARKER_TO_SEGMENT_NAME_GAP = 8
+
+
+# =========================================================
+# SEGMENTS
+# =========================================================
 
 # Segment name and approximate start/end miles.
 # Adjust the distances here if the highlighted climbs need fine-tuning.
@@ -235,13 +272,13 @@ def make_svg(miles, feet, height):
         # Number and name just below the segment's starting point.
         mx, my = x(miles[first]), y(feet[first]) + MARKER_OFFSET
 
-        label_x = mx + MARKER_RADIUS + SEGMENT_LABEL_GAP
+        label_x = mx + MARKER_RADIUS + MARKER_TO_SEGMENT_NAME_GAP
         label_anchor = "start"
 
         lines += [
             f'<circle cx="{mx:.1f}" cy="{my:.1f}" r="{MARKER_RADIUS}" fill="{SEGMENT_COLOR}"/>',
             f'<text x="{mx:.1f}" y="{my:.1f}" text-anchor="middle" dominant-baseline="central" '
-            f'font-family="{FONT}" font-size="14" font-weight="700" fill="{CREAM}">{number}</text>',
+            f'font-family="{FONT}" font-size="{SEGMENT_NUMBER_SIZE}" font-weight="700" fill="{CREAM}">{number}</text>',
         ]
 
         text_block = [
@@ -252,7 +289,7 @@ def make_svg(miles, feet, height):
         ]
 
         for i, line in enumerate(label_lines):
-            dy = 0 if i == 0 else SEGMENT_LABEL_SIZE + 2
+            dy = 0 if i == 0 else SEGMENT_LABEL_SIZE + SEGMENT_NAME_LINE_SPACING
             text_block.append(
                 f'<tspan x="{label_x:.1f}" dy="{dy}">{html.escape(line)}</tspan>'
             )
@@ -266,15 +303,15 @@ def make_svg(miles, feet, height):
         xx = x(tick)
         label = f"{tick:g}" if isinstance(tick, int) else f"{tick:.1f}"
         lines += [
-            f'<line x1="{xx:.1f}" y1="{baseline:.1f}" x2="{xx:.1f}" y2="{baseline+7:.1f}" stroke="{GREEN}" stroke-width="{AXIS_LINE_WIDTH}"/>',
-            f'<text x="{xx:.1f}" y="{baseline+28:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{TICK_FONT_SIZE}" fill="{MUTED}">{html.escape(label)}</text>',
+            f'<line x1="{xx:.1f}" y1="{baseline:.1f}" x2="{xx:.1f}" y2="{baseline+X_TICK_LENGTH:.1f}" stroke="{GREEN}" stroke-width="{AXIS_LINE_WIDTH}"/>',
+            f'<text x="{xx:.1f}" y="{baseline+X_TICK_LABEL_GAP:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{TICK_FONT_SIZE}" fill="{MUTED}">{html.escape(label)}</text>',
         ]
 
     # Gain by mile.
     mile_gains = gain_by_mile(miles, feet)
     max_gain = max(gain for _, _, gain in mile_gains)
 
-    miles_title_y = baseline + X_AXIS_TITLE_GAP
+    miles_title_y = baseline + X_AXIS_TO_TITLE_GAP
 
     # Gain chart positioning.
     bar_group_offset = 15      # Moves bars, numbers, and gain title together.
@@ -291,17 +328,20 @@ def make_svg(miles, feet, height):
 
         lines += [
             f'<rect x="{bar_x:.1f}" y="{bar_top + bar_height - bar_h:.1f}" width="{bar_w:.1f}" height="{bar_h:.1f}" rx="3" fill="{GREEN}" opacity="0.25"/>',
-            f'<text x="{bar_x + bar_w/2:.1f}" y="{bar_top + bar_height - bar_h - 7:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{SEGMENT_LABEL_SIZE}" font-weight="700" fill="{GREEN}">{gain:.0f}</text>',
-        ]
+            f'<text x="{bar_x + bar_w/2:.1f}" y="{bar_top + bar_height - bar_h - 7:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{GAIN_NUMBER_SIZE}" font-weight="700" fill="{GREEN}">{gain:.0f}</text>',       ]
 
     # Axis titles and start/finish dots.
     lines += [
         f'<text x="{LEFT_MARGIN + plot_w/2:.1f}" y="{miles_title_y:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">MILES</text>',
         f'<text x="{LEFT_MARGIN + plot_w/2:.1f}" y="{gain_title_y:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">VERTICAL GAIN BY MILE (FT)</text>',
-        f'<text x="{Y_AXIS_TITLE_X}" y="{TOP_MARGIN + plot_h/2:.1f}" text-anchor="middle" transform="rotate(-90 {Y_AXIS_TITLE_X} {TOP_MARGIN + plot_h/2:.1f})" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">ELEVATION (FT)</text>',
+        f'<text x="{Y_AXIS_TITLE_CENTER_X}" y="{TOP_MARGIN + plot_h/2:.1f}" text-anchor="middle" transform="rotate(-90 {Y_AXIS_TITLE_CENTER_X} {TOP_MARGIN + plot_h/2:.1f})" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">ELEVATION (FT)</text>',
     ]
     for mi, ft in ((miles[0], feet[0]), (miles[-1], feet[-1])):
-        lines.append(f'<circle cx="{x(mi):.1f}" cy="{y(ft):.1f}" r="6" fill="{CREAM}" stroke="{GREEN}" stroke-width="3"/>')
+        lines.append(
+            f'<circle cx="{x(mi):.1f}" cy="{y(ft):.1f}" '
+            f'r="6" fill="{CREAM}" stroke="{GREEN}" '
+            f'stroke-width="3"/>'
+            )
 
     lines.append("</svg>")
     return "\n".join(lines)
