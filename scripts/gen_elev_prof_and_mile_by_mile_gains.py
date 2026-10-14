@@ -47,7 +47,7 @@ GAIN_SECTION_HEIGHT = 200
 # =========================================================
 
 Y_AXIS_TITLE_CENTER_X = 32
-X_AXIS_TO_TITLE_GAP = 68
+X_AXIS_TO_TITLE_GAP = 64
 
 X_TICK_INTERVAL = 1
 X_TICK_LENGTH = 7
@@ -311,24 +311,37 @@ def make_svg(miles, feet, height):
     mile_gains = gain_by_mile(miles, feet)
     max_gain = max(gain for _, _, gain in mile_gains)
 
-    miles_title_y = baseline + X_AXIS_TO_TITLE_GAP
+    # Gain chart tuning.
+    MILES_TITLE_TO_BARS_GAP = 72
+    BAR_MAX_HEIGHT = 80
+    BAR_BOTTOM_TO_GAIN_TITLE_GAP = 40
+    BAR_TOP_TO_NUMBER_GAP = 7
+    BAR_OPACITY = 0.25
 
     # Gain chart positioning.
-    bar_group_offset = 15      # Moves bars, numbers, and gain title together.
-    gain_title_gap = 40        # Space between bottom of bars and gain title.
-
-    bar_top = miles_title_y + 48 + bar_group_offset
-    bar_height = 80
-    gain_title_y = bar_top + bar_height + gain_title_gap
+    miles_title_y = baseline + X_AXIS_TO_TITLE_GAP
+    bar_bottom = miles_title_y + MILES_TITLE_TO_BARS_GAP + BAR_MAX_HEIGHT
+    gain_title_y = bar_bottom + BAR_BOTTOM_TO_GAIN_TITLE_GAP
 
     for start, finish, gain in mile_gains:
         bar_x = x(start) + 5
         bar_w = x(finish) - x(start) - 10
-        bar_h = gain / max_gain * bar_height
+        bar_h = gain / max_gain * BAR_MAX_HEIGHT
+        bar_y = bar_bottom - bar_h
 
-        lines += [
-            f'<rect x="{bar_x:.1f}" y="{bar_top + bar_height - bar_h:.1f}" width="{bar_w:.1f}" height="{bar_h:.1f}" rx="3" fill="{GREEN}" opacity="0.25"/>',
-            f'<text x="{bar_x + bar_w/2:.1f}" y="{bar_top + bar_height - bar_h - 7:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{GAIN_NUMBER_SIZE}" font-weight="700" fill="{GREEN}">{gain:.0f}</text>',       ]
+        lines.append(
+            f'<rect x="{bar_x:.1f}" y="{bar_y:.1f}" '
+            f'width="{bar_w:.1f}" height="{bar_h:.1f}" '
+            f'rx="3" fill="{GREEN}" opacity="{BAR_OPACITY}"/>'
+        )
+
+        lines.append(
+            f'<text x="{bar_x + bar_w / 2:.1f}" '
+            f'y="{bar_y - BAR_TOP_TO_NUMBER_GAP:.1f}" '
+            f'text-anchor="middle" font-family="{FONT}" '
+            f'font-size="{GAIN_NUMBER_SIZE}" font-weight="700" '
+            f'fill="{GREEN}">{gain:.0f}</text>'
+        )
 
     # Axis titles and start/finish dots.
     lines += [
@@ -336,6 +349,7 @@ def make_svg(miles, feet, height):
         f'<text x="{LEFT_MARGIN + plot_w/2:.1f}" y="{gain_title_y:.1f}" text-anchor="middle" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">VERTICAL GAIN BY MILE (FT)</text>',
         f'<text x="{Y_AXIS_TITLE_CENTER_X}" y="{TOP_MARGIN + plot_h/2:.1f}" text-anchor="middle" transform="rotate(-90 {Y_AXIS_TITLE_CENTER_X} {TOP_MARGIN + plot_h/2:.1f})" font-family="{FONT}" font-size="{AXIS_TITLE_FONT_SIZE}" font-weight="700" letter-spacing="1.5" fill="{MUTED}">ELEVATION (FT)</text>',
     ]
+
     for mi, ft in ((miles[0], feet[0]), (miles[-1], feet[-1])):
         lines.append(
             f'<circle cx="{x(mi):.1f}" cy="{y(ft):.1f}" '
