@@ -72,7 +72,7 @@ SEGMENT_LABEL_SIZE = 20
 SEGMENT_NUMBER_SIZE = 14
 SEGMENT_NAME_LINE_SPACING = 2
 
-GAIN_NUMBER_SIZE = 20
+GAIN_NUMBER_SIZE = 24
 
 # =========================================================
 # LINES + GRID
