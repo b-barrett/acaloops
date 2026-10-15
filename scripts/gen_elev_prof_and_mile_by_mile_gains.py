@@ -67,9 +67,9 @@ TICK_FONT_SIZE = 24
 
 AXIS_TITLE_FONT_SIZE = 24
 
-SEGMENT_LABEL_SIZE = 20
+SEGMENT_LABEL_SIZE = 24
 
-SEGMENT_NUMBER_SIZE = 14
+SEGMENT_NUMBER_SIZE = 24
 SEGMENT_NAME_LINE_SPACING = 2
 
 GAIN_NUMBER_SIZE = 24
@@ -86,8 +86,8 @@ AXIS_LINE_WIDTH = 1.5
 # SEGMENT MARKERS
 # =========================================================
 
-MARKER_OFFSET = 26
-MARKER_RADIUS = 13
+MARKER_OFFSET = 24
+MARKER_RADIUS = 16
 MARKER_TO_SEGMENT_NAME_GAP = 8
 
 
@@ -98,10 +98,10 @@ MARKER_TO_SEGMENT_NAME_GAP = 8
 # Segment name and approximate start/end miles.
 # Adjust the distances here if the highlighted climbs need fine-tuning.
 SEGMENTS = [
-    {"name": "Suburban Escape", "label_lines": ["SUBURBAN", "ESCAPE"], "start": 0.47, "end": 0.96},
-    {"name": "Sousa to Summit", "label_lines": ["SOUSA TO", "SUMMIT"], "start": 3.95, "end": 4.90},
+    {"name": "Suburban Escape", "label_lines": ["SUBURBAN", "ESCAPE"], "start": 0.47, "end": 0.95},
+    {"name": "Sousa to Summit", "label_lines": ["SOUSA TO", "SUMMIT"], "start": 3.96, "end": 4.91},
     {"name": "Short and Steep", "label_lines": ["SHORT", "AND", "STEEP"], "start": 5.80, "end": 6.00},
-    {"name": "Oh No, Not Yet", "label_lines": ["OH NO,", "NOT YET"], "start": 6.665, "end": 7.065},
+    {"name": "Oh No, Not Yet", "label_lines": ["OH NO,", "NOT YET"], "start": 6.660, "end": 6.910},
 ]
 
 M_TO_MI = 0.000621371
@@ -272,6 +272,9 @@ def make_svg(miles, feet, height):
         # Number and name just below the segment's starting point.
         mx, my = x(miles[first]), y(feet[first]) + MARKER_OFFSET
 
+        if number==4:
+            mx += MARKER_OFFSET
+
         label_x = mx + MARKER_RADIUS + MARKER_TO_SEGMENT_NAME_GAP
         label_anchor = "start"
 
@@ -313,9 +316,9 @@ def make_svg(miles, feet, height):
 
     # Gain chart tuning.
     MILES_TITLE_TO_BARS_GAP = 72
-    BAR_MAX_HEIGHT = 80
+    BAR_MAX_HEIGHT = 100
     BAR_BOTTOM_TO_GAIN_TITLE_GAP = 40
-    BAR_TOP_TO_NUMBER_GAP = 7
+    BAR_TOP_TO_NUMBER_GAP = 10
     BAR_OPACITY = 0.25
 
     # Gain chart positioning.
