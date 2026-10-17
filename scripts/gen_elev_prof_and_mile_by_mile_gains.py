@@ -17,7 +17,7 @@ GPX_PATH = ROOT / "assets" / "route" / "Morning_Trail_Run.gpx"
 OUTPUT_DIR = ROOT / "assets" / "images"
 
 # =========================================================
-# 1. CONFIGURATION — FUTURE BEN: START HERE
+# CONFIGURATION — FUTURE BEN: START HERE
 # =========================================================
 
 # COLORS + FONT
@@ -61,7 +61,7 @@ SEGMENT_LABEL_SIZE = 24
 SEGMENT_NUMBER_SIZE = 28
 SEGMENT_NAME_LINE_SPACING = 4
 
-MARKER_Y_OFFSET = 36
+MARKER_Y_OFFSET = 28
 MARKER_RADIUS = 20
 MARKER_TO_SEGMENT_NAME_GAP = 8
 SEGMENT_MARKER_X_OFFSET = 18
