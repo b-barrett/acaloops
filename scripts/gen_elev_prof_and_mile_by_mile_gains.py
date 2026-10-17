@@ -12,16 +12,15 @@ from bisect import bisect_left
 import math
 import xml.etree.ElementTree as ET
 
-
-# =========================================================
-# 1. CONFIGURATION — FUTURE BEN: START HERE
-# =========================================================
-# For normal updates, this is the part you're likely to touch.
-
 ROOT = Path(__file__).resolve().parents[1]
 GPX_PATH = ROOT / "assets" / "route" / "Morning_Trail_Run.gpx"
 OUTPUT_DIR = ROOT / "assets" / "images"
 
+# =========================================================
+# 1. CONFIGURATION — FUTURE BEN: START HERE
+# =========================================================
+
+# COLORS + FONT
 CREAM = "#f4f1e8"
 GREEN = "#142219"
 MUTED = "#465248"
@@ -29,67 +28,54 @@ GRID = "#c9c7be"
 SEGMENT_COLOR = "#BA8E23"
 FONT = "Helvetica Neue, Helvetica, Arial, sans-serif"
 
-# =========================================================
-# CHART LAYOUT
-# =========================================================
-
+# CANVAS + ELEVATION PROFILE
 SVG_WIDTH = 1200
-
 LEFT_MARGIN = 108
 RIGHT_MARGIN = 32
 TOP_MARGIN = 32
-BOTTOM_MARGIN = 84
-
-GAIN_SECTION_HEIGHT = 200
-
-# =========================================================
-# AXES + SCALE
-# =========================================================
-
-Y_AXIS_TITLE_CENTER_X = 32
-X_AXIS_TO_TITLE_GAP = 64
-
-X_TICK_INTERVAL = 1
-X_TICK_LENGTH = 7
-X_TICK_LABEL_GAP = 28
+BOTTOM_MARGIN = 96
 
 MIN_ELEVATION_FT = 100
 MAX_ELEVATION_FT = 800
 ELEVATION_TICK_FT = 100
-
 VERTICAL_EXAGGERATIONS = (20, 24, 28)
 
-# =========================================================
-# TYPOGRAPHY
-# =========================================================
+PROFILE_LINE_WIDTH = 5
 
-TICK_FONT_SIZE = 24
+# ELEVATION AXES + GRID
+Y_AXIS_TITLE_CENTER_X = 32
 
-AXIS_TITLE_FONT_SIZE = 24
+X_AXIS_TO_TITLE_GAP = 76
+X_TICK_INTERVAL = 1
+X_TICK_LENGTH = 12
+X_TICK_LABEL_GAP = 36
 
+GRID_LINE_WIDTH = 2
+AXIS_LINE_WIDTH = 2
+
+TICK_FONT_SIZE = 28
+AXIS_TITLE_FONT_SIZE = 32
+
+# SEGMENT LABELS
 SEGMENT_LABEL_SIZE = 24
+SEGMENT_NUMBER_SIZE = 28
+SEGMENT_NAME_LINE_SPACING = 4
 
-SEGMENT_NUMBER_SIZE = 20
-SEGMENT_NAME_LINE_SPACING = 2
-
-GAIN_NUMBER_SIZE = 24
-
-# =========================================================
-# LINES + GRID
-# =========================================================
-
-PROFILE_LINE_WIDTH = 4
-GRID_LINE_WIDTH = 1
-AXIS_LINE_WIDTH = 1.5
-
-# =========================================================
-# SEGMENT MARKERS
-# =========================================================
-
-MARKER_OFFSET = 24
-MARKER_RADIUS = 16
+MARKER_Y_OFFSET = 36
+MARKER_RADIUS = 20
 MARKER_TO_SEGMENT_NAME_GAP = 8
+SEGMENT_MARKER_X_OFFSET = 18
 
+# GAIN-BY-MILE CHART
+GAIN_SECTION_HEIGHT = 250
+
+MILES_TITLE_TO_BARS_GAP = 92
+BAR_MAX_HEIGHT = 120
+BAR_BOTTOM_TO_GAIN_TITLE_GAP = 44
+BAR_TOP_TO_NUMBER_GAP = 10
+BAR_SIDE_INSET = 5
+BAR_OPACITY = 0.25
+GAIN_NUMBER_SIZE = 28
 
 # =========================================================
 # SEGMENTS
@@ -270,10 +256,12 @@ def make_svg(miles, feet, height):
         )
 
         # Number and name just below the segment's starting point.
-        mx, my = x(miles[first]), y(feet[first]) + MARKER_OFFSET
+        mx, my = x(miles[first]), y(feet[first]) + MARKER_Y_OFFSET
 
-        if number==4:
-            mx += MARKER_OFFSET
+        if number == 4:
+            mx += SEGMENT_MARKER_X_OFFSET
+        elif number == 3:
+            mx -= SEGMENT_MARKER_X_OFFSET
 
         label_x = mx + MARKER_RADIUS + MARKER_TO_SEGMENT_NAME_GAP
         label_anchor = "start"
@@ -313,13 +301,6 @@ def make_svg(miles, feet, height):
     # Gain by mile.
     mile_gains = gain_by_mile(miles, feet)
     max_gain = max(gain for _, _, gain in mile_gains)
-
-    # Gain chart tuning.
-    MILES_TITLE_TO_BARS_GAP = 72
-    BAR_MAX_HEIGHT = 100
-    BAR_BOTTOM_TO_GAIN_TITLE_GAP = 40
-    BAR_TOP_TO_NUMBER_GAP = 10
-    BAR_OPACITY = 0.25
 
     # Gain chart positioning.
     miles_title_y = baseline + X_AXIS_TO_TITLE_GAP
