@@ -61,9 +61,9 @@ SEGMENT_LABEL_SIZE = 24
 SEGMENT_NUMBER_SIZE = 28
 SEGMENT_NAME_LINE_SPACING = 4
 
-MARKER_Y_OFFSET = 28
+MARKER_Y_OFFSET = 24
 MARKER_RADIUS = 20
-MARKER_TO_SEGMENT_NAME_GAP = 8
+MARKER_TO_SEGMENT_NAME_GAP = 6
 SEGMENT_MARKER_X_OFFSET = 18
 
 # GAIN-BY-MILE CHART
@@ -258,7 +258,7 @@ def make_svg(miles, feet, height):
         # Number and name just below the segment's starting point.
         mx, my = x(miles[first]), y(feet[first]) + MARKER_Y_OFFSET
 
-        if number == 4:
+        if number in (1,4):
             mx += SEGMENT_MARKER_X_OFFSET
         elif number == 3:
             mx -= SEGMENT_MARKER_X_OFFSET
