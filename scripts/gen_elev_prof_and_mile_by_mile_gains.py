@@ -17,7 +17,7 @@ GPX_PATH = ROOT / "assets" / "route" / "Morning_Trail_Run.gpx"
 OUTPUT_DIR = ROOT / "assets" / "images"
 
 # =========================================================
-# CONFIGURATION — FUTURE BEN: START HERE
+# CONFIGURATION
 # =========================================================
 
 # COLORS + FONT
@@ -68,7 +68,8 @@ SEGMENT_MARKER_X_OFFSET = 18
 # GAIN-BY-MILE CHART
 GAIN_SECTION_HEIGHT = 350
 
-MILES_TITLE_TO_BARS_GAP = 108
+X_AXIS_TO_GAIN_BARS_GAP = 200
+
 BAR_MAX_HEIGHT = 200
 BAR_BOTTOM_TO_GAIN_TITLE_GAP = 44
 BAR_TOP_TO_NUMBER_GAP = 12
@@ -95,7 +96,7 @@ FEET_PER_MILE = 5280.0
 
 
 # =========================================================
-# 2. READ GPX + CALCULATE ROUTE DATA
+# READ GPX + CALCULATE ROUTE DATA
 # =========================================================
 
 def read_gpx(path):
@@ -140,7 +141,6 @@ def profile_data(points):
     return miles, feet, raw_gain_ft
 
 
-
 def gain_by_mile(miles, feet):
     """Return raw elevation gain within each mile."""
     gains = []
@@ -158,7 +158,7 @@ def gain_by_mile(miles, feet):
 
 
 # =========================================================
-# 3. CHART GEOMETRY
+# CHART GEOMETRY
 # =========================================================
 
 def height_for_exaggeration(distance_mi, exaggeration):
@@ -180,7 +180,7 @@ def actual_exaggeration(distance_mi, height):
 
 
 # =========================================================
-# 4. BUILD SVG
+# BUILD SVG
 # =========================================================
 
 def make_svg(miles, feet, height):
@@ -188,6 +188,7 @@ def make_svg(miles, feet, height):
     plot_w = SVG_WIDTH - LEFT_MARGIN - RIGHT_MARGIN
     plot_h = height - TOP_MARGIN - BOTTOM_MARGIN - GAIN_SECTION_HEIGHT
     max_mi = miles[-1]
+    # Y-coordinate of the elevation profile's x-axis line.
     baseline = TOP_MARGIN + plot_h
 
     def x(mi):
@@ -303,12 +304,12 @@ def make_svg(miles, feet, height):
 
     # Gain chart positioning.
     miles_title_y = baseline + X_AXIS_TO_TITLE_GAP
-    bar_bottom = miles_title_y + MILES_TITLE_TO_BARS_GAP + BAR_MAX_HEIGHT
+    bar_bottom = baseline + X_AXIS_TO_GAIN_BARS_GAP + BAR_MAX_HEIGHT
     gain_title_y = bar_bottom + BAR_BOTTOM_TO_GAIN_TITLE_GAP
 
     for start, finish, gain in mile_gains:
-        bar_x = x(start) + 5
-        bar_w = x(finish) - x(start) - 10
+        bar_x = x(start) + BAR_SIDE_INSET
+        bar_w = x(finish) - x(start) - 2 * BAR_SIDE_INSET
         bar_h = gain / max_gain * BAR_MAX_HEIGHT
         bar_y = bar_bottom - bar_h
 
@@ -345,7 +346,7 @@ def make_svg(miles, feet, height):
 
 
 # =========================================================
-# 5. RUN IT
+# RUN IT
 # =========================================================
 
 def main():

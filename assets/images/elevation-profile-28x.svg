@@ -57,26 +57,26 @@
 <text x="1105.4" y="539.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" fill="#465248">8</text>
 <line x1="1168.0" y1="491.0" x2="1168.0" y2="507.0" stroke="#142219" stroke-width="2"/>
 <text x="1168.0" y="539.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" fill="#465248">8.5</text>
-<rect x="121.0" y="699.8" width="113.7" height="187.2" rx="3" fill="#142219" opacity="0.25"/>
-<text x="177.8" y="687.8" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">479</text>
-<rect x="244.7" y="780.6" width="113.7" height="106.4" rx="3" fill="#142219" opacity="0.25"/>
-<text x="301.5" y="768.6" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">272</text>
-<rect x="368.4" y="852.4" width="113.7" height="34.6" rx="3" fill="#142219" opacity="0.25"/>
-<text x="425.2" y="840.4" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">89</text>
-<rect x="492.0" y="807.5" width="113.7" height="79.5" rx="3" fill="#142219" opacity="0.25"/>
-<text x="548.9" y="795.5" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">203</text>
-<rect x="615.7" y="687.0" width="113.7" height="200.0" rx="3" fill="#142219" opacity="0.25"/>
-<text x="672.6" y="675.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">512</text>
-<rect x="739.4" y="753.7" width="113.7" height="133.3" rx="3" fill="#142219" opacity="0.25"/>
-<text x="796.2" y="741.7" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">341</text>
-<rect x="863.1" y="743.4" width="113.7" height="143.6" rx="3" fill="#142219" opacity="0.25"/>
-<text x="919.9" y="731.4" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">367</text>
-<rect x="986.8" y="833.2" width="113.7" height="53.8" rx="3" fill="#142219" opacity="0.25"/>
-<text x="1043.6" y="821.2" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">138</text>
-<rect x="1110.4" y="883.2" width="52.6" height="3.8" rx="3" fill="#142219" opacity="0.25"/>
-<text x="1136.7" y="871.2" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">10</text>
+<rect x="121.0" y="703.8" width="113.7" height="187.2" rx="3" fill="#142219" opacity="0.25"/>
+<text x="177.8" y="691.8" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">479</text>
+<rect x="244.7" y="784.6" width="113.7" height="106.4" rx="3" fill="#142219" opacity="0.25"/>
+<text x="301.5" y="772.6" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">272</text>
+<rect x="368.4" y="856.4" width="113.7" height="34.6" rx="3" fill="#142219" opacity="0.25"/>
+<text x="425.2" y="844.4" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">89</text>
+<rect x="492.0" y="811.5" width="113.7" height="79.5" rx="3" fill="#142219" opacity="0.25"/>
+<text x="548.9" y="799.5" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">203</text>
+<rect x="615.7" y="691.0" width="113.7" height="200.0" rx="3" fill="#142219" opacity="0.25"/>
+<text x="672.6" y="679.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">512</text>
+<rect x="739.4" y="757.7" width="113.7" height="133.3" rx="3" fill="#142219" opacity="0.25"/>
+<text x="796.2" y="745.7" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">341</text>
+<rect x="863.1" y="747.4" width="113.7" height="143.6" rx="3" fill="#142219" opacity="0.25"/>
+<text x="919.9" y="735.4" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">367</text>
+<rect x="986.8" y="837.2" width="113.7" height="53.8" rx="3" fill="#142219" opacity="0.25"/>
+<text x="1043.6" y="825.2" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">138</text>
+<rect x="1110.4" y="887.2" width="52.6" height="3.8" rx="3" fill="#142219" opacity="0.25"/>
+<text x="1136.7" y="875.2" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#142219">10</text>
 <text x="642.0" y="579.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="1.5" fill="#465248">MILES</text>
-<text x="642.0" y="931.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="1.5" fill="#465248">VERTICAL GAIN BY MILE (FT)</text>
+<text x="642.0" y="935.0" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="1.5" fill="#465248">VERTICAL GAIN BY MILE (FT)</text>
 <text x="32" y="261.5" text-anchor="middle" transform="rotate(-90 32 261.5)" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="1.5" fill="#465248">ELEVATION (FT)</text>
 <circle cx="116.0" cy="395.2" r="6" fill="#f4f1e8" stroke="#142219" stroke-width="3"/>
 <circle cx="1168.0" cy="388.8" r="6" fill="#f4f1e8" stroke="#142219" stroke-width="3"/>
