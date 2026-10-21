@@ -30,10 +30,9 @@ FONT = "Helvetica Neue, Helvetica, Arial, sans-serif"
 
 # CANVAS
 SVG_WIDTH = 1200
-LEFT_MARGIN = 116
+LEFT_MARGIN = 128
 RIGHT_MARGIN = 32
 TOP_MARGIN = 32
-BOTTOM_MARGIN = 108
 
 # ELEVATION PROFILE
 MIN_ELEVATION_FT = 100
@@ -66,16 +65,25 @@ MARKER_TO_SEGMENT_NAME_GAP = 8
 SEGMENT_MARKER_X_OFFSET = 18
 
 # GAIN-BY-MILE CHART
-GAIN_SECTION_HEIGHT = 350
 
-X_AXIS_TO_GAIN_BARS_GAP = 200
+# Everything below the elevation x-axis line is measured from that line (px).
+X_AXIS_TO_GAIN_BARS_GAP = 200        # x-axis line -> TOP of the tallest bar
+BAR_MAX_HEIGHT = 200                 # tallest bar's height
+BAR_BOTTOM_TO_GAIN_TITLE_GAP = 48    # bar baseline -> gain chart title baseline
+BELOW_TITLE_PADDING = 16             # gain title baseline -> bottom of SVG
 
-BAR_MAX_HEIGHT = 200
-BAR_BOTTOM_TO_GAIN_TITLE_GAP = 44
 BAR_TOP_TO_NUMBER_GAP = 12
 BAR_SIDE_INSET = 5
 BAR_OPACITY = 0.25
 GAIN_NUMBER_SIZE = 32
+
+# Derived: total height below the x-axis line. Don't edit directly.
+BELOW_AXIS_HEIGHT = (
+    X_AXIS_TO_GAIN_BARS_GAP
+    + BAR_MAX_HEIGHT
+    + BAR_BOTTOM_TO_GAIN_TITLE_GAP
+    + BELOW_TITLE_PADDING
+)
 
 # =========================================================
 # SEGMENTS
@@ -93,7 +101,6 @@ SEGMENTS = [
 M_TO_MI = 0.000621371
 M_TO_FT = 3.28084
 FEET_PER_MILE = 5280.0
-
 
 # =========================================================
 # READ GPX + CALCULATE ROUTE DATA
@@ -161,19 +168,21 @@ def gain_by_mile(miles, feet):
 # CHART GEOMETRY
 # =========================================================
 
+def plot_height(svg_height):
+    return svg_height - TOP_MARGIN - BELOW_AXIS_HEIGHT
+
 def height_for_exaggeration(distance_mi, exaggeration):
     """Calculate SVG height for the requested vertical exaggeration."""
     plot_w = SVG_WIDTH - LEFT_MARGIN - RIGHT_MARGIN
     horizontal_ft = distance_mi * FEET_PER_MILE
     elevation_ft = MAX_ELEVATION_FT - MIN_ELEVATION_FT
     plot_h = exaggeration * elevation_ft * plot_w / horizontal_ft
-    return round(TOP_MARGIN + plot_h + BOTTOM_MARGIN + GAIN_SECTION_HEIGHT)
-
+    return round(TOP_MARGIN + plot_h + BELOW_AXIS_HEIGHT)
 
 def actual_exaggeration(distance_mi, height):
     """Actual exaggeration after height is rounded to a whole pixel."""
     plot_w = SVG_WIDTH - LEFT_MARGIN - RIGHT_MARGIN
-    plot_h = height - TOP_MARGIN - BOTTOM_MARGIN - GAIN_SECTION_HEIGHT
+    plot_h = plot_height(height)
     horizontal_px_per_ft = plot_w / (distance_mi * FEET_PER_MILE)
     vertical_px_per_ft = plot_h / (MAX_ELEVATION_FT - MIN_ELEVATION_FT)
     return vertical_px_per_ft / horizontal_px_per_ft
@@ -186,7 +195,7 @@ def actual_exaggeration(distance_mi, height):
 def make_svg(miles, feet, height):
     """Build one elevation-profile SVG."""
     plot_w = SVG_WIDTH - LEFT_MARGIN - RIGHT_MARGIN
-    plot_h = height - TOP_MARGIN - BOTTOM_MARGIN - GAIN_SECTION_HEIGHT
+    plot_h = plot_height(height)
     max_mi = miles[-1]
     # Y-coordinate of the elevation profile's x-axis line.
     baseline = TOP_MARGIN + plot_h
