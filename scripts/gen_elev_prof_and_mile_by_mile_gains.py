@@ -67,8 +67,8 @@ SEGMENT_MARKER_X_OFFSET = 18
 # GAIN-BY-MILE CHART
 
 # Everything below the elevation x-axis line is measured from that line (px).
-X_AXIS_TO_GAIN_BARS_GAP = 200        # x-axis line -> TOP of the tallest bar
-BAR_MAX_HEIGHT = 200                 # tallest bar's height
+X_AXIS_TO_GAIN_BARS_GAP = 240        # x-axis line -> TOP of the tallest bar
+BAR_MAX_HEIGHT = 240                 # tallest bar's height
 BAR_BOTTOM_TO_GAIN_TITLE_GAP = 48    # bar baseline -> gain chart title baseline
 BELOW_TITLE_PADDING = 16             # gain title baseline -> bottom of SVG
 
